@@ -1,0 +1,21 @@
+# Dependencias
+node_modules/
+
+# Secretos: solo se versiona la plantilla .env.example
+.env
+.env.*
+!.env.example
+
+# Documentos del proyecto (binarios grandes; se comparten fuera del repositorio)
+docs/
+
+# Historiales git anteriores conservados localmente (contienen secretos)
+.git-historial-anterior/
+Web_acuicultura-git-history-backup/
+
+# Sistema y editores
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/
+*.log

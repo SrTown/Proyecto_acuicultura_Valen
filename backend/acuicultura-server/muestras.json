@@ -1,0 +1,37 @@
+[
+    {
+        "fecha": "2025-01-15",
+        "ph": 7.2,
+        "temperatura": 24.5,
+        "oxigeno": 6.1,
+        "tecnica": "multiparametro"
+    },
+    {
+        "fecha": "2025-01-18",
+        "ph": 7.4,
+        "temperatura": 29.5,
+        "oxigeno": 6.8,
+        "tecnica": "multiparametro"
+    },
+    {
+        "fecha": "2025-01-26",
+        "ph": 7.7,
+        "temperatura": 30.5,
+        "oxigeno": 6.4,
+        "tecnica": "multiparametro"
+    },
+    {
+        "fecha": "2025-02-06",
+        "ph": 7.1,
+        "temperatura": 32.5,
+        "oxigeno": 6.1,
+        "tecnica": "multiparametro"
+    },
+    {
+        "fecha": "2025-02-14",
+        "ph": 7.9,
+        "temperatura": 33.5,
+        "oxigeno": 5.9,
+        "tecnica": "multiparametro"
+    }
+]
