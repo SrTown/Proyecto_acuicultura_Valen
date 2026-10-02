@@ -4,69 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datos del muestreo | GEI en Estanques de Cachama</title>
+  <meta name="description" content="Datos preliminares del muestreo semanal de pH, temperatura y oxígeno disuelto en estanques de cachama.">
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header>
-    <p class="marca">Gases de Efecto Invernadero en Estanques Piscícolas de Cachama</p>
-    <nav>
+<body class="con-banner">
+  <header class="cabecera">
+    <a class="marca" href="index.html">
+      <svg class="marca-icono" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-3 8.5-3S16 20 20.5 20 25 17 29 17M3 26c4 0 4-3 8.5-3S16 26 20.5 26 25 23 29 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="9" r="2.6" fill="currentColor"/><circle cx="19" cy="5.5" r="1.7" fill="currentColor"/><circle cx="21.5" cy="11" r="1.2" fill="currentColor"/></svg>
+      <span class="marca-texto">Gases de Efecto Invernadero en Estanques Piscícolas de Cachama</span>
+    </a>
+    <nav aria-label="Principal">
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="metodologia.html">Metodología</a></li>
+        <li><a href="datos.html" aria-current="page">Datos</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-
-    <section class="hero">
-      <span class="eyebrow">Muestreo semanal</span>
+  <section class="banner">
+    <img class="banner-img" src="img/Carrusel_10.jpeg" alt="Vista de varios estanques de tierra para el cultivo de cachama">
+    <div class="banner-velo"></div>
+    <div class="banner-contenido contenedor">
+      <span class="eyebrow eyebrow-claro">Muestreo semanal</span>
       <h1>Datos del muestreo</h1>
-      <p class="lead">
+      <p class="lead lead-claro">
         Los datos que se muestran son preliminares; el conjunto completo de muestras
         se publicará al finalizar su validación.
       </p>
-    </section>
+    </div>
+  </section>
 
-    <section style="border-top:none;">
-      <h2>Variables que se analizan</h2>
-      <div class="param-grid">
-        <div class="param"><span class="simb">CO₂</span><div class="nombre">Dióxido de carbono</div></div>
-        <div class="param"><span class="simb">CH₄</span><div class="nombre">Metano disuelto</div></div>
-        <div class="param"><span class="simb">pH</span><div class="nombre">Equilibrio del CO₂</div></div>
-        <div class="param"><span class="simb">°C</span><div class="nombre">Temperatura del agua</div></div>
-        <div class="param"><span class="simb">OD</span><div class="nombre">Oxígeno disuelto</div></div>
+  <main class="principal">
+
+    <!-- Variables -->
+    <section class="seccion seccion-clara">
+      <div class="contenedor">
+        <div class="encabezado-seccion" data-revelar>
+          <span class="eyebrow">Qué medimos</span>
+          <h2>Variables que se analizan</h2>
+        </div>
+        <div class="param-grid">
+          <div class="param" data-revelar><span class="simb">CO₂</span><div class="nombre">Dióxido de carbono</div></div>
+          <div class="param" data-revelar><span class="simb">CH₄</span><div class="nombre">Metano disuelto</div></div>
+          <div class="param" data-revelar><span class="simb">pH</span><div class="nombre">Equilibrio del CO₂</div></div>
+          <div class="param" data-revelar><span class="simb">°C</span><div class="nombre">Temperatura del agua</div></div>
+          <div class="param" data-revelar><span class="simb">OD</span><div class="nombre">Oxígeno disuelto</div></div>
+        </div>
       </div>
     </section>
 
-    <section>
-      <h2>Muestras registradas</h2>
-      <p>Filtra por técnica de muestreo para comparar los registros.</p>
+    <!-- Muestras -->
+    <section class="seccion seccion-oscura">
+      <div class="contenedor">
+        <div class="encabezado-seccion" data-revelar>
+          <span class="eyebrow">Registros</span>
+          <h2>Muestras registradas</h2>
+          <p>Filtra por técnica de muestreo para comparar los registros.</p>
+        </div>
 
-      <div id="filtros">
-        <button data-tecnica="todas">Todas</button>
-        <button data-tecnica="multiparametro">Multiparámetro</button>
-        <button data-tecnica="headspace">Headspace</button>
+        <div class="datos-barra" data-revelar>
+          <div id="filtros" role="group" aria-label="Filtrar por técnica">
+            <button data-tecnica="todas">Todas</button>
+            <button data-tecnica="multiparametro">Multiparámetro</button>
+            <button data-tecnica="headspace">Headspace</button>
+          </div>
+          <p class="datos-contador" id="contador-muestras" aria-live="polite"></p>
+        </div>
+
+        <!-- Rango de cada variable en las muestras visibles (se calcula en datos.js) -->
+        <div class="resumen-muestras" id="resumen-muestras" data-revelar hidden>
+          <div class="resumen-item"><span class="resumen-etiqueta">pH</span><span class="resumen-valor" data-resumen="ph"></span></div>
+          <div class="resumen-item"><span class="resumen-etiqueta">Temperatura</span><span class="resumen-valor" data-resumen="temperatura"></span></div>
+          <div class="resumen-item"><span class="resumen-etiqueta">Oxígeno disuelto</span><span class="resumen-valor" data-resumen="oxigeno"></span></div>
+        </div>
+
+        <div class="tabla-datos-contenedor" data-revelar>
+          <table class="tabla-datos">
+            <caption class="solo-lectores">Muestras registradas: fecha, pH, temperatura, oxígeno disuelto y técnica</caption>
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col"><span class="sin-mayusculas">pH</span></th>
+                <th scope="col">Temperatura <span class="unidad">°C</span></th>
+                <th scope="col">Oxígeno disuelto <span class="unidad">mg/L</span></th>
+                <th scope="col">Técnica</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpo-muestras"></tbody>
+          </table>
+        </div>
       </div>
-
-      <ul id="lista-muestras"></ul>
     </section>
 
   </main>
 
-  <footer>
-    <p>Emisiones de GEI en estanques piscícolas de cachama — datos de campo, Orinoquía, Colombia</p>
+  <footer class="pie">
+    <div class="contenedor pie-contenido">
+      <p class="pie-marca">Emisiones de GEI en estanques piscícolas de cachama — datos de campo, Orinoquía, Colombia</p>
+      <nav aria-label="Pie de página">
+        <a href="index.html">Inicio</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="datos.html">Datos</a>
+      </nav>
+    </div>
   </footer>
 
-  <button id="volver-arriba" aria-label="Volver arriba">↑</button>
+  <button id="volver-arriba" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 
-  <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">💬</button>
+  <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
   <div id="chat-panel" class="oculto">
+    <p class="chat-titulo">Asistente del proyecto</p>
     <form id="form-chat">
       <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" required>
       <button type="submit">Enviar</button>
     </form>
-    <p id="respuesta-ia"></p>
+    <p id="respuesta-ia" aria-live="polite"></p>
   </div>
 
   <script src="interfaz.js"></script>

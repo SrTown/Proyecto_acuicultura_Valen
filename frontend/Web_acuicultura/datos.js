@@ -1,14 +1,53 @@
 const URL_API_DATOS = "http://localhost:3000/api/datos";
 
-const listaMuestras = document.querySelector("#lista-muestras");
+const cuerpoTabla = document.querySelector("#cuerpo-muestras");
 const botonesFiltro = document.querySelectorAll("#filtros button");
+const contador = document.querySelector("#contador-muestras");
+const resumen = document.querySelector("#resumen-muestras");
+
+const NOMBRES_TECNICA = { multiparametro: "Multiparámetro", headspace: "Headspace" };
+const COLUMNAS = ["Fecha", "pH", "Temperatura (°C)", "Oxígeno disuelto (mg/L)", "Técnica"];
+const formatoFecha = new Intl.DateTimeFormat("es-CO", { day: "numeric", month: "short", year: "numeric" });
+
+// "2025-01-15" -> "15 ene 2025". Se construye en hora local para que no cambie el día por la zona horaria.
+function formatearFecha(texto) {
+  const [anio, mes, dia] = String(texto).split("-").map(Number);
+  if (!anio || !mes || !dia) return String(texto);
+  return formatoFecha.format(new Date(anio, mes - 1, dia));
+}
+
+function celda(texto, etiqueta, clase) {
+  const td = document.createElement("td");
+  td.textContent = texto;
+  td.dataset.etiqueta = etiqueta; // en móvil se muestra como título de cada dato
+  if (clase) td.className = clase;
+  return td;
+}
 
 function mostrarMensaje(texto) {
-  listaMuestras.textContent = "";
-  const item = document.createElement("li");
-  item.className = "mensaje-lista";
-  item.textContent = texto;
-  listaMuestras.appendChild(item);
+  cuerpoTabla.textContent = "";
+  const fila = document.createElement("tr");
+  const td = document.createElement("td");
+  td.colSpan = COLUMNAS.length;
+  td.className = "mensaje-tabla";
+  td.textContent = texto;
+  fila.appendChild(td);
+  cuerpoTabla.appendChild(fila);
+  contador.textContent = "";
+  resumen.hidden = true;
+}
+
+function actualizarResumen(muestras) {
+  const rango = (clave, unidad) => {
+    const valores = muestras.map((m) => Number(m[clave])).filter((v) => !Number.isNaN(v));
+    if (!valores.length) return "—";
+    const min = Math.min(...valores), max = Math.max(...valores);
+    return (min === max ? `${min}` : `${min} – ${max}`) + (unidad ? ` ${unidad}` : "");
+  };
+  resumen.querySelector('[data-resumen="ph"]').textContent = rango("ph", "");
+  resumen.querySelector('[data-resumen="temperatura"]').textContent = rango("temperatura", "°C");
+  resumen.querySelector('[data-resumen="oxigeno"]').textContent = rango("oxigeno", "mg/L");
+  resumen.hidden = false;
 }
 
 function renderizarMuestras(arrayAMostrar) {
@@ -17,12 +56,31 @@ function renderizarMuestras(arrayAMostrar) {
     return;
   }
 
-  listaMuestras.textContent = ""; // limpia lo que había antes de volver a dibujar
-  arrayAMostrar.forEach(function (muestra) {
-    const item = document.createElement("li");
-    item.textContent = `Fecha: ${muestra.fecha}, pH: ${muestra.ph}, Temperatura: ${muestra.temperatura}°C, Oxígeno: ${muestra.oxigeno} mg/L, Técnica: ${muestra.tecnica}`;
-    listaMuestras.appendChild(item);
+  cuerpoTabla.textContent = ""; // limpia lo que había antes de volver a dibujar
+  arrayAMostrar.forEach(function (muestra, i) {
+    const fila = document.createElement("tr");
+    fila.style.setProperty("--i", i); // retraso escalonado de la animación de entrada
+
+    const fecha = celda(formatearFecha(muestra.fecha), COLUMNAS[0], "celda-fecha");
+    fecha.title = muestra.fecha;
+    fila.appendChild(fecha);
+    fila.appendChild(celda(muestra.ph, COLUMNAS[1], "celda-num"));
+    fila.appendChild(celda(muestra.temperatura, COLUMNAS[2], "celda-num"));
+    fila.appendChild(celda(muestra.oxigeno, COLUMNAS[3], "celda-num"));
+
+    const tecnica = celda("", COLUMNAS[4]);
+    const insignia = document.createElement("span");
+    insignia.className = "insignia insignia-" + muestra.tecnica;
+    insignia.textContent = NOMBRES_TECNICA[muestra.tecnica] || muestra.tecnica;
+    tecnica.appendChild(insignia);
+    fila.appendChild(tecnica);
+
+    cuerpoTabla.appendChild(fila);
   });
+
+  const n = arrayAMostrar.length;
+  contador.textContent = n === 1 ? "1 muestra" : `${n} muestras`;
+  actualizarResumen(arrayAMostrar);
 }
 
 function marcarFiltroActivo(botonActivo) {

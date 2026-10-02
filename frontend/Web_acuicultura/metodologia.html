@@ -4,196 +4,271 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Metodología de muestreo | GEI en Estanques de Cachama</title>
+  <meta name="description" content="Las cinco fases del protocolo de muestreo en campo para medir gases de efecto invernadero en estanques de cachama.">
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header>
-    <p class="marca">GEI en Estanques de Cachama </p>
-    <nav>
+<body class="con-banner">
+  <header class="cabecera">
+    <a class="marca" href="index.html">
+      <svg class="marca-icono" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-3 8.5-3S16 20 20.5 20 25 17 29 17M3 26c4 0 4-3 8.5-3S16 26 20.5 26 25 23 29 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="9" r="2.6" fill="currentColor"/><circle cx="19" cy="5.5" r="1.7" fill="currentColor"/><circle cx="21.5" cy="11" r="1.2" fill="currentColor"/></svg>
+      <span class="marca-texto">Gases de Efecto Invernadero en Estanques Piscícolas de Cachama</span>
+    </a>
+    <nav aria-label="Principal">
       <ul>
         <li><a href="index.html">Inicio</a></li>
+        <li><a href="metodologia.html" aria-current="page">Metodología</a></li>
         <li><a href="datos.html">Datos</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-
-    <section class="hero">
-      <span class="eyebrow">Metodología de campo</span>
+  <section class="banner">
+    <img class="banner-img banner-img-arriba" src="img/campo-equipo-registro.jpg" alt="Registro de datos en campo junto al equipo de muestreo">
+    <div class="banner-velo"></div>
+    <div class="banner-contenido contenedor">
+      <span class="eyebrow eyebrow-claro">Metodología de campo</span>
       <h1>Cinco fases de muestreo en campo</h1>
-      <p class="lead">
+      <p class="lead lead-claro">
         Cada visita a los estanques sigue el mismo protocolo, desde la toma de la
         muestra de agua hasta el análisis de gases disueltos en laboratorio. Cuatro
         estanques de tierra (identificados como 11, 5, 3 y A4) se monitorean semanalmente
         siguiendo estos pasos.
       </p>
+    </div>
+  </section>
+
+  <main class="principal">
+
+    <!-- Las cinco fases -->
+    <section class="seccion seccion-clara seccion-fases">
+      <div class="contenedor">
+
+        <nav class="indice-fases" aria-label="Ir a una fase">
+          <a href="#fase-1"><span>1</span> Toma de agua</a>
+          <a href="#fase-2"><span>2</span> Flujos de CO₂</a>
+          <a href="#fase-3"><span>3</span> Fisicoquímicos</a>
+          <a href="#fase-4"><span>4</span> Aire ambiente</a>
+          <a href="#fase-5"><span>5</span> Gas disuelto</a>
+        </nav>
+
+        <ol class="linea-tiempo">
+
+          <li class="fase" id="fase-1">
+            <span class="fase-num" aria-hidden="true">1</span>
+            <article class="fase-tarjeta" data-revelar>
+              <div class="fase-texto">
+                <span class="fase-tecnica">Bomba peristáltica</span>
+                <h3>Toma de muestras de agua</h3>
+                <p>Extracción de agua a una profundidad definida para su posterior análisis en laboratorio.</p>
+                <ul>
+                  <li>Selección del punto de muestreo.</li>
+                  <li>Preparación y verificación del equipo.</li>
+                  <li>Extracción de agua con bomba peristáltica.</li>
+                  <li>Renovación del volumen de la botella (≥ 2 volúmenes).</li>
+                  <li>Sellado y conservación de la muestra.</li>
+                </ul>
+              </div>
+              <figure class="fase-fotos">
+                <div class="fase-fotos-rejilla">
+                  <img src="img/fase_1.1.png" alt="Botella de muestreo conectada con mangueras a la orilla del estanque" loading="lazy" data-ampliar>
+                  <img src="img/fase_1.2.png" alt="Bomba peristáltica portátil llenando una botella con agua del estanque" loading="lazy" data-ampliar>
+                </div>
+                <figcaption>Toma de muestras de agua con la bomba peristáltica.</figcaption>
+              </figure>
+            </article>
+          </li>
+
+          <li class="fase" id="fase-2">
+            <span class="fase-num" aria-hidden="true">2</span>
+            <article class="fase-tarjeta" data-revelar>
+              <div class="fase-texto">
+                <span class="fase-tecnica">Cámara flotante + analizador Li-COR</span>
+                <h3>Medición de flujos de CO₂</h3>
+                <p>Cuantificación de las emisiones de dióxido de carbono desde la superficie del agua.</p>
+                <ul>
+                  <li>Cámara cerrada sobre la superficie del estanque, conectada a un analizador Li-COR + LoggerNet.</li>
+                  <li>El equipo se estabiliza 30 minutos antes de medir.</li>
+                  <li>Se registran 8 minutos de datos por punto, con hora de inicio y fin.</li>
+                </ul>
+              </div>
+              <figure class="fase-fotos">
+                <div class="fase-fotos-rejilla">
+                  <img src="img/fase_2.1.png" alt="Equipo Li-COR y laptop para medición de flujos de CO2" loading="lazy" data-ampliar>
+                  <img src="img/fase_2.2.png" alt="Equipo Li-COR y laptop para medición de flujos de CO2" loading="lazy" data-ampliar>
+                </div>
+                <figcaption>Equipamiento para la medición de flujos de CO₂.</figcaption>
+              </figure>
+            </article>
+          </li>
+
+          <li class="fase" id="fase-3">
+            <span class="fase-num" aria-hidden="true">3</span>
+            <article class="fase-tarjeta" data-revelar>
+              <div class="fase-texto">
+                <span class="fase-tecnica">Multiparámetro</span>
+                <h3>Parámetros fisicoquímicos in situ</h3>
+                <p>Medición directa en campo de pH, temperatura y oxígeno disuelto — variables clave que condicionan la generación y emisión de GEI.</p>
+                <ul>
+                  <li>Verificar el equipo multiparámetro (estado y calibración).</li>
+                  <li>Limpiar el electrodo para evitar contaminación cruzada.</li>
+                  <li>Sumergir el sensor sin contacto con sedimentos.</li>
+                  <li>Esperar la estabilización de la lectura.</li>
+                  <li>Registrar pH, temperatura (°C) y OD (ppm y % de saturación).</li>
+                </ul>
+              </div>
+              <figure class="fase-fotos">
+                <div class="fase-fotos-rejilla una">
+                  <img src="img/fase_3.1.jpg" alt="Toma de parámetros fisicoquímicos desde la orilla" loading="lazy" data-ampliar>
+                </div>
+              </figure>
+            </article>
+          </li>
+
+          <li class="fase" id="fase-4">
+            <span class="fase-num" aria-hidden="true">4</span>
+            <article class="fase-tarjeta" data-revelar>
+              <div class="fase-texto">
+                <span class="fase-tecnica">Bolsas Tedlar</span>
+                <h3>Muestreo de aire ambiente</h3>
+                <p>Captura de aire ambiente como "blanco atmosférico" — un punto de referencia para comparar contra las concentraciones de gases del estanque.</p>
+                <ul>
+                  <li>Se llena la bolsa con el brazo completamente extendido, alejado del rostro.</li>
+                  <li>Esa distancia evita que el CO₂ exhalado contamine la muestra durante el llenado.</li>
+                </ul>
+              </div>
+              <figure class="fase-fotos">
+                <div class="fase-fotos-rejilla">
+                  <img src="img/fase_4.1.png" alt="Integrante del equipo llenando una bolsa con el brazo extendido junto al estanque" loading="lazy" data-ampliar>
+                  <img src="img/fase_4.2.png" alt="Jeringa conectada a una bolsa Tedlar para tomar aire ambiente" loading="lazy" data-ampliar>
+                </div>
+                <figcaption>Llenado de bolsas Tedlar con aire ambiente, con el brazo extendido.</figcaption>
+              </figure>
+            </article>
+          </li>
+
+          <li class="fase" id="fase-5">
+            <span class="fase-num" aria-hidden="true">5</span>
+            <article class="fase-tarjeta" data-revelar>
+              <div class="fase-texto">
+                <span class="fase-tecnica">Headspace + Picarro</span>
+                <h3>Muestreo de gas disuelto</h3>
+                <p>Determinación de gases disueltos en el agua mediante equilibrio con un espacio de cabeza (headspace), analizados después en un equipo Picarro de alta precisión.</p>
+                <ul>
+                  <li>Se conecta una botella a la bomba peristáltica y una bolsa de gas atmosférico al tope de la botella.</li>
+                  <li>Con la bomba encendida, se extraen 500 mL de agua mientras se inyecta aire de la bolsa hacia la botella.</li>
+                  <li>Se agita la botella (500 mL aire + 500 mL agua) durante 2 minutos para favorecer el intercambio gaseoso entre fases.</li>
+                  <li>Se inyecta nuevamente el agua, desplazando el gas hacia una bolsa Tedlar.</li>
+                  <li>El gas desplazado queda capturado en la bolsa Tedlar.</li>
+                  <li>Se almacena identificado (muestra, fecha, hora, lugar) para su análisis en el Picarro.</li>
+                </ul>
+              </div>
+              <figure class="fase-fotos">
+                <div class="fase-fotos-rejilla">
+                  <img src="img/fase_5.1.png" alt="Muestreo de gas disuelto por headspace" loading="lazy" data-ampliar>
+                  <img src="img/fase_5.2.png" alt="Muestreo de gas disuelto por headspace" loading="lazy" data-ampliar>
+                </div>
+                <figcaption>Muestreo de gas disuelto por la técnica de headspace.</figcaption>
+              </figure>
+            </article>
+          </li>
+
+        </ol>
+      </div>
     </section>
 
-    <section style="border-top:none;">
-      <div class="fases">
+    <!-- Infografía -->
+    <section class="seccion seccion-oscura">
+      <div class="contenedor">
+        <figure class="infografia" data-revelar>
+          <img src="img/fases-muestreo.jpg" alt="Infografía de las cinco fases de muestreo en campo: toma de muestras con bomba peristáltica, medición de flujos de CO2 con cámara y analizador, parámetros fisicoquímicos in situ, muestreo de aire ambiente en bolsas Tedlar, y muestreo de gas disuelto por headspace analizado en Picarro." loading="lazy" data-ampliar>
+          <figcaption>Resumen visual de las cinco fases de muestreo en campo.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-        <div class="fase">
-          <span class="fase-num">1</span>
-          <span class="fase-tecnica">Bomba peristáltica</span>
-          <h3>Toma de muestras de agua</h3>
-          <figure>
-            <img src="img/fase_1.1.png" width="300" height="300" alt="Botella de muestreo conectada con mangueras a la orilla del estanque">
-            <img src="img/fase_1.2.png" width="300" height="300" alt="Bomba peristáltica portátil llenando una botella con agua del estanque">
-            <figcaption>Toma de muestras de agua con la bomba peristáltica.</figcaption>
-          </figure>
-          <p>Extracción de agua a una profundidad definida para su posterior análisis en laboratorio.</p>
-          <ul>
-            <li>Selección del punto de muestreo.</li>
-            <li>Preparación y verificación del equipo.</li>
-            <li>Extracción de agua con bomba peristáltica.</li>
-            <li>Renovación del volumen de la botella (≥ 2 volúmenes).</li>
-            <li>Sellado y conservación de la muestra.</li>
-          </ul>
+    <!-- Equipos y variables -->
+    <section class="seccion seccion-clara">
+      <div class="contenedor">
+        <div class="encabezado-seccion" data-revelar>
+          <span class="eyebrow">Equipos y variables</span>
+          <h2>Equipos, materiales y qué mide cada variable</h2>
         </div>
 
-        <div class="fase">
-          <span class="fase-num">2</span>
-          <span class="fase-tecnica">Cámara flotante + analizador Li-COR</span>
-          <h3>Medición de flujos de CO₂</h3>
-          <figure>
-            <img src="img/fase_2.1.png" width="300" height="300" alt="Equipo Li-COR y laptop para medición de flujos de CO2">
-            <img src="img/fase_2.2.png" width="300" height="300" alt="Equipo Li-COR y laptop para medición de flujos de CO2">
+        <div class="tablas">
+          <div class="tabla-tarjeta" data-revelar>
+            <table>
+              <thead>
+                <tr><th>Equipo / material</th><th>Uso en campo</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Analizador Li-COR + LoggerNet</strong></td><td>Flujo de CO₂ en cámara flotante</td></tr>
+                <tr><td><strong>Analizador Picarro</strong></td><td>Análisis de gases disueltos (headspace)</td></tr>
+                <tr><td><strong>Equipo multiparámetro</strong></td><td>pH, temperatura, oxígeno disuelto (ppm y % saturación)</td></tr>
+                <tr><td><strong>Bomba peristáltica portátil</strong></td><td>Toma de muestras de agua</td></tr>
+                <tr><td><strong>Bolsas Tedlar (500 mL)</strong></td><td>Muestras de aire ambiente y gas desplazado</td></tr>
+                <tr><td><strong>Botellas y mangueras</strong></td><td>Técnica de headspace</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tabla-tarjeta" data-revelar>
+            <table>
+              <thead>
+                <tr><th>Variable</th><th>Qué explica</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>CO₂ y CH₄</strong></td><td>Concentración disuelta y flujo directo desde el agua</td></tr>
+                <tr><td><strong>pH</strong></td><td>Equilibrio del CO₂ en el agua</td></tr>
+                <tr><td><strong>Temperatura (°C)</strong></td><td>Solubilidad de gases y actividad microbiana</td></tr>
+                <tr><td><strong>Oxígeno disuelto (OD)</strong></td><td>Condiciones redox — aeróbico o anaeróbico</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registro fotográfico -->
+    <section class="seccion seccion-oscura">
+      <div class="contenedor">
+        <div class="encabezado-seccion" data-revelar>
+          <span class="eyebrow">Registro fotográfico</span>
+          <h2>El muestreo en campo</h2>
+        </div>
+        <div class="galeria">
+          <figure data-revelar>
+            <img src="img/equipo-campo-grupo.jpg" alt="Equipo de trabajo junto a uno de los estanques" loading="lazy" data-ampliar>
+            <figcaption>Equipo de trabajo en uno de los estanques monitoreados.</figcaption>
+          </figure>
+          <figure data-revelar>
+            <img src="img/bomba-peristaltica.jpg" alt="Toma de muestras con bomba peristáltica" loading="lazy" data-ampliar>
+            <figcaption>Toma de muestras de agua con bomba peristáltica.</figcaption>
+          </figure>
+          <figure data-revelar>
+            <img src="img/campo-equipo-registro.jpg" alt="Registro de datos en campo junto al equipo" loading="lazy" data-ampliar>
+            <figcaption>Registro de parámetros y preparación del equipo en campo.</figcaption>
+          </figure>
+          <figure data-revelar>
+            <img src="img/fase_3.1.jpg" alt="Toma de parámetros fisicoquímicos desde la orilla" loading="lazy" data-ampliar>
+            <figcaption>Toma de parámetros fisicoquímicos in situ.</figcaption>
+          </figure>
+          <figure data-revelar>
+            <img src="img/equipo-li-cor.jpg" alt="Equipo Li-COR y laptop para medición de flujos de CO2" loading="lazy" data-ampliar>
             <figcaption>Equipamiento para la medición de flujos de CO₂.</figcaption>
           </figure>
-          <p>Cuantificación de las emisiones de dióxido de carbono desde la superficie del agua.</p>
-          <ul>
-            <li>Cámara cerrada sobre la superficie del estanque, conectada a un analizador Li-COR + LoggerNet.</li>
-            <li>El equipo se estabiliza 30 minutos antes de medir.</li>
-            <li>Se registran 8 minutos de datos por punto, con hora de inicio y fin.</li>
-          </ul>
-        </div>
-
-        <div class="fase">
-          <span class="fase-num">3</span>
-          <span class="fase-tecnica">Multiparámetro</span>
-          <h3>Parámetros fisicoquímicos in situ</h3>
-          <figure>
-            <img src="img/fase_3.1.jpg" width="300" height="300" alt="Toma de parámetros fisicoquímicos desde la orilla">
+          <figure data-revelar>
+            <img src="img/estanque-panoramica.jpg" alt="Vista panorámica de uno de los estanques de tierra" loading="lazy" data-ampliar>
+            <figcaption>Vista panorámica de uno de los estanques de tierra.</figcaption>
           </figure>
-          <p>Medición directa en campo de pH, temperatura y oxígeno disuelto — variables clave que condicionan la generación y emisión de GEI.</p>
-          <ul>
-            <li>Verificar el equipo multiparámetro (estado y calibración).</li>
-            <li>Limpiar el electrodo para evitar contaminación cruzada.</li>
-            <li>Sumergir el sensor sin contacto con sedimentos.</li>
-            <li>Esperar la estabilización de la lectura.</li>
-            <li>Registrar pH, temperatura (°C) y OD (ppm y % de saturación).</li>
-          </ul>
         </div>
-
-        <div class="fase">
-          <span class="fase-num">4</span>
-          <span class="fase-tecnica">Bolsas Tedlar</span>
-          <h3>Muestreo de aire ambiente</h3>
-          <figure>
-            <img src="img/fase_4.1.png" width="300" height="300" alt="Integrante del equipo llenando una bolsa con el brazo extendido junto al estanque">
-            <img src="img/fase_4.2.png" width="300" height="300" alt="Jeringa conectada a una bolsa Tedlar para tomar aire ambiente">
-            <figcaption>Llenado de bolsas Tedlar con aire ambiente, con el brazo extendido.</figcaption>
-          </figure>
-          <p>Captura de aire ambiente como "blanco atmosférico" — un punto de referencia para comparar contra las concentraciones de gases del estanque.</p>
-          <ul>
-            <li>Se llena la bolsa con el brazo completamente extendido, alejado del rostro.</li>
-            <li>Esa distancia evita que el CO₂ exhalado contamine la muestra durante el llenado.</li>
-          </ul>
-        </div>
-
-        <div class="fase">
-          <span class="fase-num">5</span>
-          <span class="fase-tecnica">Headspace + Picarro</span>
-          <h3>Muestreo de gas disuelto</h3>
-          <figure>
-            <img src="img/fase_5.1.png" width="300" height="300" alt="Muestreo de gas disuelto por headspace">
-            <img src="img/fase_5.2.png" width="300" height="300" alt="Muestreo de gas disuelto por headspace">
-            <figcaption>Muestreo de gas disuelto por la técnica de headspace.</figcaption>
-          </figure>
-          <p>Determinación de gases disueltos en el agua mediante equilibrio con un espacio de cabeza (headspace), analizados después en un equipo Picarro de alta precisión.</p>
-          <ul>
-            <li>Se conecta una botella a la bomba peristáltica y una bolsa de gas atmosférico al tope de la botella.</li>
-            <li>Con la bomba encendida, se extraen 500 mL de agua mientras se inyecta aire de la bolsa hacia la botella.</li>
-            <li>Se agita la botella (500 mL aire + 500 mL agua) durante 2 minutos para favorecer el intercambio gaseoso entre fases.</li>
-            <li>Se inyecta nuevamente el agua, desplazando el gas hacia una bolsa Tedlar.</li>
-            <li>El gas desplazado queda capturado en la bolsa Tedlar.</li>
-            <li>Se almacena identificado (muestra, fecha, hora, lugar) para su análisis en el Picarro.</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="img-full">
-        <img src="img/fases-muestreo.jpg" alt="Infografía de las cinco fases de muestreo en campo: toma de muestras con bomba peristáltica, medición de flujos de CO2 con cámara y analizador, parámetros fisicoquímicos in situ, muestreo de aire ambiente en bolsas Tedlar, y muestreo de gas disuelto por headspace analizado en Picarro.">
-      </div>
-      <p class="img-caption">Resumen visual de las cinco fases de muestreo en campo.</p>
-    </section>
-
-    <section>
-      <span class="eyebrow">Equipos y variables</span>
-      <h2>Equipos, materiales y qué mide cada variable</h2>
-      <table>
-        <thead>
-          <tr><th>Equipo / material</th><th>Uso en campo</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Analizador Li-COR + LoggerNet</strong></td><td>Flujo de CO₂ en cámara flotante</td></tr>
-          <tr><td><strong>Analizador Picarro</strong></td><td>Análisis de gases disueltos (headspace)</td></tr>
-          <tr><td><strong>Equipo multiparámetro</strong></td><td>pH, temperatura, oxígeno disuelto (ppm y % saturación)</td></tr>
-          <tr><td><strong>Bomba peristáltica portátil</strong></td><td>Toma de muestras de agua</td></tr>
-          <tr><td><strong>Bolsas Tedlar (500 mL)</strong></td><td>Muestras de aire ambiente y gas desplazado</td></tr>
-          <tr><td><strong>Botellas y mangueras</strong></td><td>Técnica de headspace</td></tr>
-        </tbody>
-      </table>
-
-      <table>
-        <thead>
-          <tr><th>Variable</th><th>Qué explica</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>CO₂ y CH₄</strong></td><td>Concentración disuelta y flujo directo desde el agua</td></tr>
-          <tr><td><strong>pH</strong></td><td>Equilibrio del CO₂ en el agua</td></tr>
-          <tr><td><strong>Temperatura (°C)</strong></td><td>Solubilidad de gases y actividad microbiana</td></tr>
-          <tr><td><strong>Oxígeno disuelto (OD)</strong></td><td>Condiciones redox — aeróbico o anaeróbico</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <span class="eyebrow">Registro fotográfico</span>
-      <h2>El muestreo en campo</h2>
-      <div class="galeria">
-        <figure>
-          <img src="img/equipo-campo-grupo.jpg" alt="Equipo de trabajo junto a uno de los estanques">
-          <figcaption>Equipo de trabajo en uno de los estanques monitoreados.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/bomba-peristaltica.jpg" alt="Toma de muestras con bomba peristáltica">
-          <figcaption>Toma de muestras de agua con bomba peristáltica.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/campo-equipo-registro.jpg" alt="Registro de datos en campo junto al equipo">
-          <figcaption>Registro de parámetros y preparación del equipo en campo.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/fase_3.1.jpg" alt="Toma de parámetros fisicoquímicos desde la orilla">
-          <figcaption>Toma de parámetros fisicoquímicos in situ.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/equipo-li-cor.jpg" alt="Equipo Li-COR y laptop para medición de flujos de CO2">
-          <figcaption>Equipamiento para la medición de flujos de CO₂.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/estanque-panoramica.jpg" alt="Vista panorámica de uno de los estanques de tierra">
-          <figcaption>Vista panorámica de uno de los estanques de tierra.</figcaption>
-        </figure>
       </div>
     </section>
 
-    <section>
-      <div class="grid-2">
-        <div class="card">
+    <!-- Preguntas -->
+    <section class="seccion seccion-clara">
+      <div class="contenedor tarjetas-dos">
+        <div class="tarjeta-clara" data-revelar>
           <h3>¿Por qué combinar tantas técnicas?</h3>
           <p>El pH y la temperatura cambian rápido y deben leerse in situ; el CO₂
           superficial se mide mejor como flujo directo; y el metano, disuelto en
@@ -201,31 +276,43 @@
           tras un paso de equilibrio (headspace). Combinar las cinco fases da una
           fotografía completa y confiable de cada estanque.</p>
         </div>
-        <div class="card">
+        <div class="tarjeta-clara tarjeta-acento" data-revelar>
           <h3>¿Tienes dudas sobre alguna fase?</h3>
           <p>Usa el asistente de IA (ícono de chat, abajo a la derecha) y pregúntale
           directamente — por ejemplo, "¿por qué se llena la bolsa Tedlar con el brazo extendido?"
           o "¿por qué el equipo Li-COR se estabiliza 30 minutos antes de medir?".</p>
-          <a href="datos.html" class="btn btn-fantasma" style="margin-top:8px;">Ver los datos resultantes →</a>
+          <a href="datos.html" class="btn">Ver los datos resultantes</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer>
-    <p>Emisiones de GEI en estanques piscícolas de cachama — datos de campo, Orinoquía, Colombia</p>
+  <footer class="pie">
+    <div class="contenedor pie-contenido">
+      <p class="pie-marca">Emisiones de GEI en estanques piscícolas de cachama — datos de campo, Orinoquía, Colombia</p>
+      <nav aria-label="Pie de página">
+        <a href="index.html">Inicio</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="datos.html">Datos</a>
+      </nav>
+    </div>
   </footer>
 
-  <button id="volver-arriba" aria-label="Volver arriba">↑</button>
+  <button id="volver-arriba" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 
-  <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">💬</button>
+  <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
   <div id="chat-panel" class="oculto">
+    <p class="chat-titulo">Asistente del proyecto</p>
     <form id="form-chat">
       <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" required>
       <button type="submit">Enviar</button>
     </form>
-    <p id="respuesta-ia"></p>
+    <p id="respuesta-ia" aria-live="polite"></p>
   </div>
 
   <script src="interfaz.js"></script>

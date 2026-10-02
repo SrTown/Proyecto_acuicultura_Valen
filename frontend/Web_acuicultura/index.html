@@ -4,24 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emisiones de GEI en estanques piscícolas de cachama</title>
+  <meta name="description" content="Proyecto de la Universidad de los Llanos que mide las emisiones de CO₂ y CH₄ en estanques de tierra para el cultivo de cachama en la Orinoquía.">
+  <!-- Activa las animaciones de aparición solo si hay JavaScript (sin JS, todo se ve normal) -->
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header>
-    <p class="marca">Gases de Efecto Invernadero en Estanques Piscícolas de Cachama</p>
-    <nav>
+<body class="con-banner">
+  <header class="cabecera">
+    <a class="marca" href="index.html">
+      <svg class="marca-icono" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-3 8.5-3S16 20 20.5 20 25 17 29 17M3 26c4 0 4-3 8.5-3S16 26 20.5 26 25 23 29 23" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="9" r="2.6" fill="currentColor"/><circle cx="19" cy="5.5" r="1.7" fill="currentColor"/><circle cx="21.5" cy="11" r="1.2" fill="currentColor"/></svg>
+      <span class="marca-texto">Gases de Efecto Invernadero en Estanques Piscícolas de Cachama</span>
+    </a>
+    <nav aria-label="Principal">
       <ul>
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
         <li><a href="metodologia.html">Metodología</a></li>
         <li><a href="datos.html">Datos</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- BANNER: foto de fondo de borde a borde + texto encima, como el banner del sitio de referencia -->
-  <section class="banner-hero">
-    <img class="banner-hero-img" src="img/Carrusel_1.jpg" alt="Estanque de tierra para el cultivo de cachama">
-    <div class="banner-hero-overlay"></div>
-    <div class="banner-hero-contenido">
+  <!-- Banner: foto de borde a borde con el título del proyecto -->
+  <section class="banner banner-completo">
+    <img class="banner-img" src="img/Carrusel_1.jpg" alt="Estanque de tierra para el cultivo de cachama">
+    <div class="banner-velo"></div>
+    <div class="banner-contenido contenedor">
       <span class="eyebrow eyebrow-claro">Piscicultura de cachama · Orinoquía</span>
       <h1>Gases de efecto invernadero en estanques piscícolas de cachama</h1>
       <p class="lead lead-claro">
@@ -30,63 +37,74 @@
         combinando mediciones de campo con análisis de laboratorio.
       </p>
     </div>
+    <a class="banner-bajar" href="#por-que" aria-label="Bajar al contenido"><span></span></a>
   </section>
 
-  <main>
+  <main class="principal">
 
-    <!-- Declaración + lista destacada, al estilo "creemos en la investigación como motor de cambio" -->
-    <section>
-      <span class="eyebrow">Por qué este proyecto</span>
-      <h2>Los estanques de tierra también son fuente de gases de efecto invernadero</h2>
-      <p class="declaracion">
-        El alimento no consumido, la producción primaria y las heces se acumulan en el
-        sedimento del estanque y allí se descomponen — liberando CO₂ y CH₄ al ambiente.
-      </p>
-      <p>
-        Con oxígeno, esa descomposición libera principalmente CO₂; sin oxígeno, domina la
-        metanogénesis y se libera CH₄ — un gas con un potencial de calentamiento 27 veces
-        mayor que el CO₂. A nivel global, los estanques de tierra son responsables de más
-        del 80% de las emisiones de GEI del sector acuícola, pero prácticamente no existe
-        información propia sobre estas emisiones en la Orinoquía, con la cachama como
-        especie líder.
-      </p>
-
-      <ul class="lista-destacada">
-        <li>Cuantificar emisiones de CO₂ y CH₄ durante el ciclo productivo de la cachama.</li>
-        <li>Caracterizar las condiciones fisicoquímicas del agua (pH, temperatura, oxígeno disuelto).</li>
-        <li>Entender su relación con la generación y liberación de gases de efecto invernadero.</li>
-        <li>Aportar información propia de la Orinoquía, hoy prácticamente inexistente.</li>
-      </ul>
-    </section>
-
-    <!-- Números grandes + imagen, al estilo "Nuestros números hablan por sí solos" -->
-    <section class="numeros-split">
-      <div class="numeros-texto">
-        <span class="eyebrow">En cifras</span>
-        <h2>Los números del muestreo hablan por sí solos</h2>
-        <div class="numeros-lista">
-          <div class="numero-item">
-            <span class="numero-grande">196</span>
-            <p>Muestras analizadas hasta la fecha, desde el inicio del monitoreo.</p>
+    <!-- Por qué este proyecto -->
+    <section class="seccion seccion-clara" id="por-que">
+      <div class="contenedor">
+        <div class="dos-columnas">
+          <div data-revelar>
+            <span class="eyebrow">Por qué este proyecto</span>
+            <h2>Los estanques de tierra también son fuente de gases de efecto invernadero</h2>
           </div>
-          <div class="numero-item">
-            <span class="numero-grande">4</span>
-            <p>Estanques de tierra monitoreados de forma continua.</p>
-          </div>
-          <div class="numero-item">
-            <span class="numero-grande">5</span>
-            <p>Fases de muestreo en cada visita de campo.</p>
+          <div data-revelar>
+            <p class="declaracion">
+              El alimento no consumido, la producción primaria y las heces se acumulan en el
+              sedimento del estanque y allí se descomponen — liberando CO₂ y CH₄ al ambiente.
+            </p>
+            <p>
+              Con oxígeno, esa descomposición libera principalmente CO₂; sin oxígeno, domina la
+              metanogénesis y se libera CH₄ — un gas con un potencial de calentamiento 27 veces
+              mayor que el CO₂. A nivel global, los estanques de tierra son responsables de más
+              del 80% de las emisiones de GEI del sector acuícola, pero prácticamente no existe
+              información propia sobre estas emisiones en la Orinoquía, con la cachama como
+              especie líder.
+            </p>
           </div>
         </div>
-      </div>
-      <div class="numeros-imagen">
-        <img src="img/Carrusel_3.jpg" alt="Muestreo en uno de los estanques monitoreados">
+
+        <ul class="lista-destacada">
+          <li data-revelar>Cuantificar emisiones de CO₂ y CH₄ durante el ciclo productivo de la cachama.</li>
+          <li data-revelar>Caracterizar las condiciones fisicoquímicas del agua (pH, temperatura, oxígeno disuelto).</li>
+          <li data-revelar>Entender su relación con la generación y liberación de gases de efecto invernadero.</li>
+          <li data-revelar>Aportar información propia de la Orinoquía, hoy prácticamente inexistente.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Carrusel -->
-    <div class="carrusel-full-bleed">
-      <div class="carrusel">
+    <!-- En cifras -->
+    <section class="seccion seccion-oscura">
+      <div class="contenedor numeros-split">
+        <div class="numeros-texto" data-revelar>
+          <span class="eyebrow eyebrow-claro">En cifras</span>
+          <h2>Los números del muestreo hablan por sí solos</h2>
+          <div class="numeros-lista">
+            <div class="numero-item">
+              <span class="numero-grande" data-contar="196">196</span>
+              <p>Muestras analizadas hasta la fecha, desde el inicio del monitoreo.</p>
+            </div>
+            <div class="numero-item">
+              <span class="numero-grande" data-contar="4">4</span>
+              <p>Estanques de tierra monitoreados de forma continua.</p>
+            </div>
+            <div class="numero-item">
+              <span class="numero-grande" data-contar="5">5</span>
+              <p>Fases de muestreo en cada visita de campo.</p>
+            </div>
+          </div>
+        </div>
+        <figure class="numeros-imagen marco-foto" data-revelar>
+          <img src="img/Carrusel_3.jpg" alt="Muestreo en uno de los estanques monitoreados" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Carrusel de fotos -->
+    <section class="seccion seccion-profunda seccion-carrusel">
+      <div class="carrusel" data-revelar>
         <div class="carrusel-track">
           <img src="img/Carrusel_1.jpg" alt="Estanque de tierra para el cultivo de cachama">
           <img src="img/Carrusel_3.jpg" alt="Burbujas de metano y CO2 liberándose del agua">
@@ -97,89 +115,106 @@
           <img src="img/Carrusel_9.jpeg" alt="Registro fotográfico del proyecto">
           <img src="img/Carrusel_10.jpeg" alt="Registro fotográfico del proyecto">
         </div>
-        <button class="carrusel-flecha izq" aria-label="Imagen anterior">‹</button>
-        <button class="carrusel-flecha der" aria-label="Imagen siguiente">›</button>
+        <button class="carrusel-flecha izq" aria-label="Imagen anterior">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="carrusel-flecha der" aria-label="Imagen siguiente">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
       <div class="carrusel-puntos"></div>
-    </div>
 
-    <div class="cta-secundario">
-      <a href="metodologia.html" class="pill">Metodología</a>
-      <a href="datos.html" class="pill">Datos</a>
-    </div>
-
-    <!-- Variables medidas -->
-    <section>
-      <span class="eyebrow">Qué medimos</span>
-      <h2>Variables analizadas en cada muestra</h2>
-      <div class="param-grid">
-        <div class="param"><span class="simb">CO₂</span><div class="nombre">Dióxido de carbono</div></div>
-        <div class="param"><span class="simb">CH₄</span><div class="nombre">Metano disuelto</div></div>
-        <div class="param"><span class="simb">pH</span><div class="nombre">Equilibrio del CO₂ en agua</div></div>
-        <div class="param"><span class="simb">°C</span><div class="nombre">Temperatura del agua</div></div>
-        <div class="param"><span class="simb">OD</span><div class="nombre">Oxígeno disuelto</div></div>
+      <div class="cta-secundario">
+        <a href="metodologia.html" class="pill">Metodología</a>
+        <a href="datos.html" class="pill">Datos</a>
       </div>
     </section>
 
-    <!-- Contacto, al estilo de tarjetas del sitio de referencia (WhatsApp / Escríbenos / Ubicación) -->
-    <section>
-      <span class="eyebrow_inicio">Contáctanos</span>
+    <!-- Variables medidas -->
+    <section class="seccion seccion-clara">
+      <div class="contenedor">
+        <div class="encabezado-seccion" data-revelar>
+          <span class="eyebrow">Qué medimos</span>
+          <h2>Variables analizadas en cada muestra</h2>
+        </div>
+        <div class="param-grid">
+          <div class="param" data-revelar><span class="simb">CO₂</span><div class="nombre">Dióxido de carbono</div></div>
+          <div class="param" data-revelar><span class="simb">CH₄</span><div class="nombre">Metano disuelto</div></div>
+          <div class="param" data-revelar><span class="simb">pH</span><div class="nombre">Equilibrio del CO₂ en agua</div></div>
+          <div class="param" data-revelar><span class="simb">°C</span><div class="nombre">Temperatura del agua</div></div>
+          <div class="param" data-revelar><span class="simb">OD</span><div class="nombre">Oxígeno disuelto</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="seccion seccion-oscura" id="contacto">
+      <div class="contenedor">
+        <div class="encabezado-seccion" data-revelar>
+          <span class="eyebrow eyebrow-claro">Contáctanos</span>
+          <h2>Equipo de investigación</h2>
+        </div>
 
         <div class="tarjetas-contacto">
-
-          <div class="columna-contacto_logo">
-            <div class="tarjeta-contacto-logo">
-              <div class="logo-universidad">
-                <img src="img/logo-unillanos.png" alt="Universidad de los Llanos">
-              </div>
+          <div class="tarjeta tarjeta-equipo" data-revelar>
+            <div class="logo-universidad">
+              <img src="img/logo-unillanos.png" alt="Universidad de los Llanos" loading="lazy">
             </div>
-
-            <div class="tarjeta-contacto">
-              <ul class="contacto-lista">
-                <li>
-                  <strong>Valentina Wilches Ávila</strong>
-                  <a href="mailto:valentina.wilches@unillanos.edu.co">valentina.wilches@unillanos.edu.co</a>
-                </li>
-                <li>
-                  <strong>Yudy Alejandra Solano López</strong>
-                  <a href="mailto:yudy.solano@unillanos.edu.co">yudy.solano@unillanos.edu.co</a>
-                </li>
-                <li><strong>Diego David Pardo Buitrago</strong></li>
-                <li><strong>João Henrique Fernandes Amaral</strong></li>
-              </ul>
-            </div>
+            <ul class="contacto-lista">
+              <li>
+                <strong>Valentina Wilches Ávila</strong>
+                <a href="mailto:valentina.wilches@unillanos.edu.co">valentina.wilches@unillanos.edu.co</a>
+              </li>
+              <li>
+                <strong>Yudy Alejandra Solano López</strong>
+                <a href="mailto:yudy.solano@unillanos.edu.co">yudy.solano@unillanos.edu.co</a>
+              </li>
+              <li><strong>Diego David Pardo Buitrago</strong></li>
+              <li><strong>João Henrique Fernandes Amaral</strong></li>
+            </ul>
           </div>
 
-          <div class="tarjeta-contacto_ubicacion tarjeta-mapa">
-            <h3>SEDE BARCELONA VILLAVICENCIO</h3>
+          <div class="tarjeta tarjeta-mapa" data-revelar>
+            <h3>Sede Barcelona Villavicencio</h3>
             <p class="datos-ubicacion">
-            <span> <strong>Dirección:</strong> Km. 12 Vía Puerto López, Vereda Barcelona, Villavicencio (Meta)</span>
-            <span> <strong>Celular:</strong> 300 000 00-01 - 300 000 00-02</span>
-            
+              <span><strong>Dirección:</strong> Km. 12 Vía Puerto López, Vereda Barcelona, Villavicencio (Meta)</span>
+              <span><strong>Celular:</strong> 300 000 00-01 - 300 000 00-02</span>
             </p>
             <iframe class="mapa-embed" loading="lazy" title="Mapa de la sede Barcelona de la Universidad de los Llanos"
               src="https://www.google.com/maps?q=4.07500,-73.58528&hl=es&z=15&output=embed">
             </iframe>
           </div>
+        </div>
+      </div>
+    </section>
 
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-contenido">
+      <p class="pie-marca">Emisiones de GEI en estanques piscícolas de cachama — datos de campo, Orinoquía, Colombia</p>
+      <nav aria-label="Pie de página">
+        <a href="index.html">Inicio</a>
+        <a href="metodologia.html">Metodología</a>
+        <a href="datos.html">Datos</a>
+      </nav>
     </div>
-  </section>
-
-</main>
-
-  <footer>
-    <p>Emisiones de GEI en estanques piscícolas de cachama — datos de campo, Orinoquía, Colombia</p>
   </footer>
 
-  <button id="volver-arriba" aria-label="Volver arriba">↑</button>
+  <button id="volver-arriba" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
 
-  <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">💬</button>
+  <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
   <div id="chat-panel" class="oculto">
+    <p class="chat-titulo">Asistente del proyecto</p>
     <form id="form-chat">
       <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" required>
       <button type="submit">Enviar</button>
     </form>
-    <p id="respuesta-ia"></p>
+    <p id="respuesta-ia" aria-live="polite"></p>
   </div>
 
   <script src="interfaz.js"></script>
