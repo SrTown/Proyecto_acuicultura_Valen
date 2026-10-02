@@ -38,10 +38,10 @@
           <span class="fase-tecnica">Bomba peristáltica</span>
           <h3>Toma de muestras de agua</h3>
           <figure>
-          <img src="img/fase_1.1.png" width="300" height="300" alt="Equipo de trabajo junto a uno de los estanques">
-          <img src="img/fase_1.2.png" width="300" height="300"alt="Equipo de trabajo junto a uno de los estanques">
-          <figcaption>Equipo de trabajo en uno de los estanques monitoreados.</figcaption>
-        </figure>
+            <img src="img/fase_1.1.png" width="300" height="300" alt="Botella de muestreo conectada con mangueras a la orilla del estanque">
+            <img src="img/fase_1.2.png" width="300" height="300" alt="Bomba peristáltica portátil llenando una botella con agua del estanque">
+            <figcaption>Toma de muestras de agua con la bomba peristáltica.</figcaption>
+          </figure>
           <p>Extracción de agua a una profundidad definida para su posterior análisis en laboratorio.</p>
           <ul>
             <li>Selección del punto de muestreo.</li>
@@ -91,9 +91,9 @@
           <span class="fase-tecnica">Bolsas Tedlar</span>
           <h3>Muestreo de aire ambiente</h3>
           <figure>
-            <img src="img/fase_4.1.png" width="300" height="300" alt="Muestreo de aire ambiente en bolsas Tedlar">
-            <img src="img/fase_4.2.png" width="300" height="300" alt="Muestreo de aire ambiente en bolsas Tedlar">
-            <figcaption>Captura de aire ambiente como "blanco atmosférico" — un punto de referencia para comparar contra las concentraciones de gases del estanque.</figcaption>
+            <img src="img/fase_4.1.png" width="300" height="300" alt="Integrante del equipo llenando una bolsa con el brazo extendido junto al estanque">
+            <img src="img/fase_4.2.png" width="300" height="300" alt="Jeringa conectada a una bolsa Tedlar para tomar aire ambiente">
+            <figcaption>Llenado de bolsas Tedlar con aire ambiente, con el brazo extendido.</figcaption>
           </figure>
           <p>Captura de aire ambiente como "blanco atmosférico" — un punto de referencia para comparar contra las concentraciones de gases del estanque.</p>
           <ul>
@@ -109,7 +109,7 @@
           <figure>
             <img src="img/fase_5.1.png" width="300" height="300" alt="Muestreo de gas disuelto por headspace">
             <img src="img/fase_5.2.png" width="300" height="300" alt="Muestreo de gas disuelto por headspace">
-            <figcaption>Determinación de gases disueltos en el agua mediante equilibrio con
+            <figcaption>Muestreo de gas disuelto por la técnica de headspace.</figcaption>
           </figure>
           <p>Determinación de gases disueltos en el agua mediante equilibrio con un espacio de cabeza (headspace), analizados después en un equipo Picarro de alta precisión.</p>
           <ul>
@@ -204,7 +204,7 @@
         <div class="card">
           <h3>¿Tienes dudas sobre alguna fase?</h3>
           <p>Usa el asistente de IA (ícono de chat, abajo a la derecha) y pregúntale
-          directamente — por ejemplo, "¿qué reactivo o licor se usa en el headspace?"
+          directamente — por ejemplo, "¿por qué se llena la bolsa Tedlar con el brazo extendido?"
           o "¿por qué el equipo Li-COR se estabiliza 30 minutos antes de medir?".</p>
           <a href="datos.html" class="btn btn-fantasma" style="margin-top:8px;">Ver los datos resultantes →</a>
         </div>
@@ -217,15 +217,18 @@
     <p>Emisiones de GEI en estanques piscícolas de cachama — datos de campo, Orinoquía, Colombia</p>
   </footer>
 
-  <button id="chat-lanzador" aria-label="Abrir chat del proyecto">💬</button>
+  <button id="volver-arriba" aria-label="Volver arriba">↑</button>
+
+  <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">💬</button>
   <div id="chat-panel" class="oculto">
     <form id="form-chat">
-      <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." required>
+      <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" required>
       <button type="submit">Enviar</button>
     </form>
     <p id="respuesta-ia"></p>
   </div>
 
+  <script src="interfaz.js"></script>
   <script src="chat.js"></script>
 </body>
 </html>

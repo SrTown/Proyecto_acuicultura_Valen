@@ -123,7 +123,7 @@
 
     <!-- Contacto, al estilo de tarjetas del sitio de referencia (WhatsApp / Escríbenos / Ubicación) -->
     <section>
-      <span class="eyebrow_inicio">Contactanos</span>
+      <span class="eyebrow_inicio">Contáctanos</span>
 
         <div class="tarjetas-contacto">
 
@@ -157,7 +157,7 @@
             <span> <strong>Celular:</strong> 300 000 00-01 - 300 000 00-02</span>
             
             </p>
-            <iframe class="mapa-embed" loading="lazy"
+            <iframe class="mapa-embed" loading="lazy" title="Mapa de la sede Barcelona de la Universidad de los Llanos"
               src="https://www.google.com/maps?q=4.07500,-73.58528&hl=es&z=15&output=embed">
             </iframe>
           </div>
@@ -173,10 +173,10 @@
 
   <button id="volver-arriba" aria-label="Volver arriba">↑</button>
 
-  <button id="chat-lanzador" aria-label="Abrir chat del proyecto">💬</button>
+  <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">💬</button>
   <div id="chat-panel" class="oculto">
     <form id="form-chat">
-      <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." required>
+      <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" required>
       <button type="submit">Enviar</button>
     </form>
     <p id="respuesta-ia"></p>

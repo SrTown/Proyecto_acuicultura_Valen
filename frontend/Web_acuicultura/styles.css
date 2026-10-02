@@ -357,6 +357,8 @@ td strong { color: var(--hueso); }
   transition: background 0.15s ease, color 0.15s ease;
 }
 #filtros button:hover { background: var(--azul-800); color: var(--hueso); }
+#filtros button.activo { background: var(--verde-500); border-color: var(--verde-500); color: var(--azul-950); }
+#lista-muestras li.mensaje-lista { font-family: var(--font-body); font-style: italic; }
 
 #lista-muestras {
   list-style: none;
@@ -595,6 +597,7 @@ footer p { color: var(--hueso-dim); font-size: 0.82rem; margin: 0; }
   font-size: 0.84rem;
   cursor: pointer;
 }
+#form-chat button:disabled { opacity: 0.6; cursor: wait; }
 
 #respuesta-ia {
   font-size: 0.86rem;
