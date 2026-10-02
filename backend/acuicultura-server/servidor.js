@@ -121,6 +121,13 @@ app.post("/api/chat", limitePorMinuto, limitePorDia, async function (req, res) {
   }
 });
 
-app.listen(PUERTO, function () {
+// En Express 5 los errores al abrir el puerto llegan como argumento de este callback
+app.listen(PUERTO, function (error) {
+  if (error) {
+    console.error(error.code === "EADDRINUSE"
+      ? `El puerto ${PUERTO} ya está en uso. ¿Tienes otro servidor abierto? Ciérralo o usa otro PORT.`
+      : "No se pudo iniciar el servidor: " + error.message);
+    process.exit(1);
+  }
   console.log("Servidor corriendo en http://localhost:" + PUERTO);
 });
