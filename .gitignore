@@ -9,10 +9,6 @@ node_modules/
 # Documentos del proyecto (binarios grandes; se comparten fuera del repositorio)
 docs/
 
-# Historiales git anteriores conservados localmente (contienen secretos)
-.git-historial-anterior/
-Web_acuicultura-git-history-backup/
-
 # Sistema y editores
 Thumbs.db
 Desktop.ini
