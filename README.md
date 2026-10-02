@@ -16,7 +16,15 @@ Proyecto_Valen/
 │   ├── muestras.json             Datos del muestreo (preliminares)
 │   ├── prueba_ai.js              Prueba rápida de la conexión con Gemini
 │   └── .env.example              Plantilla de variables de entorno
-├── frontend/Web_acuicultura/     Sitio estático (HTML, CSS, JS, img/)
+├── frontend/Web_acuicultura/     Sitio estático
+│   ├── index.html                Inicio
+│   ├── metodologia.html          Las cinco fases de muestreo
+│   ├── datos.html                Tabla de muestras con filtros
+│   ├── styles.css                Sistema visual de todo el sitio (colores, tipografía, componentes)
+│   ├── interfaz.js               Carrusel, animaciones, línea de tiempo y visor de imágenes
+│   ├── datos.js                  Carga y muestra los datos de /api/datos
+│   ├── chat.js                   Asistente de chat
+│   └── img/                      Fotografías del proyecto
 └── docs/                         Presentaciones y documentos del proyecto (no forman parte del sitio)
 ```
 
@@ -53,7 +61,9 @@ npm run dev     # se reinicia solo al guardar cambios
 npm start
 ```
 
-Debe mostrar `Servidor corriendo en http://localhost:3000`.
+Debe mostrar `Servidor corriendo en http://localhost:3000`. Si en cambio muestra
+`El puerto 3000 ya está en uso`, ya tienes otro servidor abierto: ciérralo o arranca con
+otro puerto (ver `PORT` en [Variables de entorno](#variables-de-entorno)).
 
 ### 2. Frontend
 
@@ -65,6 +75,85 @@ mensaje.
 
 > No abras los HTML con doble clic (`file://`): el servidor solo acepta peticiones desde
 > `localhost` / `127.0.0.1`.
+
+Las fuentes se cargan desde Google Fonts, así que se necesita conexión a internet para verlas.
+Sin conexión el sitio funciona igual, con fuentes de respaldo: Georgia para los títulos y la
+fuente del sistema para el texto.
+
+## Diseño del sitio
+
+### Sistema visual
+
+El diseño es **mixto**: las secciones alternan entre fondo oscuro (azul de estanque) y fondo
+claro (arena cálida). Todas las páginas abren con un banner fotográfico a ancho completo.
+
+Los colores, tipografías, radios y sombras están definidos como variables en `:root`, al
+inicio de `styles.css`. Para cambiar un color en todo el sitio basta con cambiar su variable:
+
+| Variable | Uso |
+|---|---|
+| `--noche`, `--azul-950` … `--azul-700` | Fondos oscuros |
+| `--arena`, `--arena-2`, `--blanco` | Fondos claros y tarjetas |
+| `--tinta`, `--tinta-suave` | Texto sobre fondo claro |
+| `--hueso`, `--hueso-dim` | Texto sobre fondo oscuro |
+| `--verde-500`, `--verde-400` | Acento principal sobre fondo oscuro |
+| `--verde-700`, `--naranja-600` | Acentos para texto sobre fondo claro (más oscuros, para que se lean bien) |
+| `--naranja-500`, `--naranja-400` | Acento secundario |
+
+**Tipografía:** Fraunces para los títulos, Inter para el texto y JetBrains Mono para las
+etiquetas pequeñas (`--font-display`, `--font-body` y `--font-mono`).
+
+### Construir una sección
+
+Cada sección usa una clase de fondo y un `.contenedor` que limita el ancho del contenido:
+
+```html
+<section class="seccion seccion-clara">   <!-- o seccion-oscura / seccion-profunda -->
+  <div class="contenedor">
+    <div class="encabezado-seccion" data-revelar>
+      <span class="eyebrow">Etiqueta pequeña</span>
+      <h2>Título de la sección</h2>
+    </div>
+    ...
+  </div>
+</section>
+```
+
+Dentro de `.seccion-clara`, los títulos, textos y enlaces cambian solos a los colores para
+fondo claro.
+
+### Interacciones (`interfaz.js`)
+
+Se activan con atributos en el HTML:
+
+| Atributo | Efecto |
+|---|---|
+| `data-revelar` | El elemento aparece con un desvanecimiento al llegar a él con el scroll. Los elementos hermanos aparecen escalonados. |
+| `data-contar="196"` | La cifra cuenta desde 0 hasta el valor al aparecer en pantalla. |
+| `data-ampliar` (en un `<img>`) | Al hacer clic, la imagen se abre en el visor a pantalla completa. Usa como pie el `<figcaption>` de su `<figure>` o, si no hay, el texto alternativo. Se navega con las flechas y se cierra con Esc. |
+
+En las tres páginas, la cabecera flota transparente sobre el banner y se vuelve sólida al
+bajar. Además, cada página tiene:
+
+- **Inicio:** carrusel de fotos.
+- **Metodología:** índice de fases que marca la fase visible y línea de tiempo que se llena
+  al hacer scroll.
+- **Datos:** tabla que en móvil se muestra como tarjetas y resumen con el rango de cada
+  variable.
+
+### Accesibilidad
+
+- Si el sistema tiene activada la opción de **reducir movimiento**, se desactivan las
+  animaciones.
+- **Sin JavaScript** el contenido se ve completo: las animaciones de aparición solo se
+  aplican cuando el JavaScript está activo.
+- El visor, el carrusel, el chat y los filtros se pueden usar con teclado.
+
+### Imágenes
+
+Para los banners conviene usar fotos de **al menos 1400 px de ancho**; más pequeñas se ven
+borrosas a pantalla completa. Las fotos de las fases se recortan en formato cuadrado, así
+que conviene que el motivo principal esté centrado.
 
 ## API
 
@@ -116,7 +205,15 @@ este formato:
 
 `tecnica` debe ser `multiparametro` o `headspace` para que funcionen los filtros de la página
 de Datos. Al reemplazar el archivo con los datos completos, la página se actualiza sin
-cambiar el código.
+cambiar el código: la tabla, el contador de muestras y el resumen de rangos se calculan
+solos.
+
+Para añadir una técnica nueva:
+
+1. Añade un botón en `datos.html`, dentro de `#filtros`: `<button data-tecnica="nueva">Nombre</button>`.
+2. Añade su nombre para mostrar en `NOMBRES_TECNICA`, en `datos.js`.
+3. Opcional: dale un color a su insignia en `styles.css` con `.insignia-nueva { ... }`. Si no,
+   usa el estilo neutro.
 
 ## Publicar en internet (pendiente)
 
