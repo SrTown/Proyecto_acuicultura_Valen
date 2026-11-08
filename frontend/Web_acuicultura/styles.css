@@ -1144,7 +1144,8 @@ tbody tr { transition: background 0.25s ease; }
   padding: 24px;
   border-bottom: 1px solid var(--linea);
   animation: fila-entra 0.5s var(--curva) both;
-  animation-delay: calc(var(--i, 0) * 60ms);
+  /* El escalonado se limita a las primeras filas: sin tope, la fila 199 tardaba ~12 s en aparecer */
+  animation-delay: calc(min(var(--i, 0), 12) * 60ms);
 }
 #lista-muestras li:last-child { border-bottom: none; }
 #lista-muestras li:hover { background: rgba(124, 208, 193, 0.06); }

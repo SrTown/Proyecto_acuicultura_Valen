@@ -183,6 +183,10 @@
   const observador = new IntersectionObserver((entradas) => {
     entradas.forEach((entrada) => {
       if (!entrada.isIntersecting) return;
+      // Un elemento más alto que la pantalla (p. ej. la lista de muestras) nunca llega al 15 %
+      // visible, así que se revela en cuanto empieza a entrar
+      const alturaVista = entrada.rootBounds ? entrada.rootBounds.height : window.innerHeight;
+      if (entrada.intersectionRatio < 0.15 && entrada.boundingClientRect.height < alturaVista) return;
       const el = entrada.target;
       el.classList.add("revelado");
       el.addEventListener("transitionend", function fin(e) {
@@ -192,7 +196,7 @@
       });
       observador.unobserve(el);
     });
-  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  }, { threshold: [0, 0.15], rootMargin: "0px 0px -40px 0px" });
 
   elementos.forEach((el) => observador.observe(el));
 })();
