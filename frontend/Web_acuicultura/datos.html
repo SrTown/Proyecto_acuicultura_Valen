@@ -55,45 +55,78 @@
       </div>
     </section>
 
+    <!-- Gráficas -->
+    <section class="seccion seccion-oscura graficas-seccion">
+      <div class="contenedor">
+        <div class="encabezado-seccion" data-revelar>
+          <span class="eyebrow eyebrow-claro">Lectura rápida</span>
+          <h2>Análisis de los datos</h2>
+          <p>Comparación de registros, evolución y asociaciones entre variables.</p>
+        </div>
+        <p id="estado-graficas" class="estado-graficas" aria-live="polite">Cargando gráficas...</p>
+        <div class="graficas-grid" data-revelar>
+          <figure class="grafica-panel">
+            <figcaption>
+              <span class="grafica-kicker">Tendencia temporal</span>
+              <h3>Promedios de pH y temperatura in situ</h3>
+            </figcaption>
+            <canvas id="grafica-temporal" aria-label="Promedios diarios de pH y temperatura in situ"></canvas>
+          </figure>
+        </div>
+        <div class="correlaciones-cabecera" data-revelar>
+          <h3>Correlaciones simples</h3>
+          <p>Las asociaciones se calculan con pares completos y se separan por método de medición.</p>
+          <div id="leyenda-correlaciones" class="leyenda-correlaciones" aria-label="Leyenda de estanques y métodos"></div>
+        </div>
+        <div class="correlaciones-grid" data-revelar>
+          <figure class="grafica-panel correlacion-panel">
+            <figcaption>
+              <span class="grafica-kicker">Oxígeno disuelto / metano</span>
+              <h3>Oxígeno disuelto vs. CH₄</h3>
+            </figcaption>
+            <canvas id="correlacion-od-ch4" aria-label="Gráfica de dispersión de oxígeno disuelto contra metano"></canvas>
+            <div id="resultado-od-ch4" class="resultados-correlacion" aria-live="polite"></div>
+            <div class="correlacion-tooltip" role="status" hidden></div>
+          </figure>
+          <figure class="grafica-panel correlacion-panel">
+            <figcaption>
+              <span class="grafica-kicker">Temperatura / dióxido de carbono</span>
+              <h3>Temperatura del agua vs. CO₂</h3>
+            </figcaption>
+            <canvas id="correlacion-temp-co2" aria-label="Gráfica de dispersión de temperatura del agua contra dióxido de carbono"></canvas>
+            <div id="resultado-temp-co2" class="resultados-correlacion" aria-live="polite"></div>
+            <div class="correlacion-tooltip" role="status" hidden></div>
+          </figure>
+          <figure class="grafica-panel correlacion-panel">
+            <figcaption>
+              <span class="grafica-kicker">pH / metano</span>
+              <h3>pH vs. CH₄</h3>
+            </figcaption>
+            <canvas id="correlacion-ph-ch4" aria-label="Gráfica de dispersión de pH contra metano"></canvas>
+            <div id="resultado-ph-ch4" class="resultados-correlacion" aria-live="polite"></div>
+            <div class="correlacion-tooltip" role="status" hidden></div>
+          </figure>
+        </div>
+        <p class="nota-correlaciones">ρ resume una asociación monotónica; no implica causalidad. Los valores faltantes no se reemplazan por cero.</p>
+      </div>
+    </section>
+
     <!-- Muestras -->
     <section class="seccion seccion-oscura">
       <div class="contenedor">
         <div class="encabezado-seccion" data-revelar>
           <span class="eyebrow">Registros</span>
           <h2>Muestras registradas</h2>
-          <p>Filtra por técnica de muestreo para comparar los registros.</p>
+          <p>Filtra por estanque o registro de aire para comparar las muestras.</p>
         </div>
 
         <div class="datos-barra" data-revelar>
-          <div id="filtros" role="group" aria-label="Filtrar por técnica">
-            <button data-tecnica="todas">Todas</button>
-            <button data-tecnica="multiparametro">Multiparámetro</button>
-            <button data-tecnica="headspace">Headspace</button>
-          </div>
+          <div id="filtros" role="group" aria-label="Filtrar por estanque"></div>
           <p class="datos-contador" id="contador-muestras" aria-live="polite"></p>
         </div>
 
-        <!-- Rango de cada variable en las muestras visibles (se calcula en datos.js) -->
-        <div class="resumen-muestras" id="resumen-muestras" data-revelar hidden>
-          <div class="resumen-item"><span class="resumen-etiqueta">pH</span><span class="resumen-valor" data-resumen="ph"></span></div>
-          <div class="resumen-item"><span class="resumen-etiqueta">Temperatura</span><span class="resumen-valor" data-resumen="temperatura"></span></div>
-          <div class="resumen-item"><span class="resumen-etiqueta">Oxígeno disuelto</span><span class="resumen-valor" data-resumen="oxigeno"></span></div>
-        </div>
-
-        <div class="tabla-datos-contenedor" data-revelar>
-          <table class="tabla-datos">
-            <caption class="solo-lectores">Muestras registradas: fecha, pH, temperatura, oxígeno disuelto y técnica</caption>
-            <thead>
-              <tr>
-                <th scope="col">Fecha</th>
-                <th scope="col"><span class="sin-mayusculas">pH</span></th>
-                <th scope="col">Temperatura <span class="unidad">°C</span></th>
-                <th scope="col">Oxígeno disuelto <span class="unidad">mg/L</span></th>
-                <th scope="col">Técnica</th>
-              </tr>
-            </thead>
-            <tbody id="cuerpo-muestras"></tbody>
-          </table>
+        <div class="lista-muestras-contenedor" data-revelar>
+          <ul id="lista-muestras" aria-live="polite"></ul>
         </div>
       </div>
     </section>
