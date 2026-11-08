@@ -6,7 +6,7 @@ const express = require("express");
 const cors = require("cors");
 const { rateLimit, MINUTE, DAY } = require("express-rate-limit");
 const fs = require("fs/promises");
-const { cargarDocumentos, construirInstrucciones, separarFuentes } = require("./contexto");
+const { cargarDocumentos, construirInstrucciones, separarFuentes, prepararHistorial } = require("./contexto");
 const app = express();
 
 const PUERTO = process.env.PORT || 3000;
@@ -64,7 +64,8 @@ const limitePorDia = rateLimit({
 });
 
 app.use(cors({ origin: origenesPermitidos }));
-app.use(express.json({ limit: "10kb" }));
+// 32 KB: la pregunta más los mensajes anteriores de la conversación (hasta 8, recortados en el servidor)
+app.use(express.json({ limit: "32kb" }));
 
 app.get("/api/datos", async function (req, res) {
   try {
@@ -102,7 +103,8 @@ app.post("/api/chat", limitePorMinuto, limitePorDia, async function (req, res) {
       },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: instrucciones }] },
-        contents: [{ role: "user", parts: [{ text: pregunta }] }],
+        // Mensajes anteriores (para entender preguntas de seguimiento) y la pregunta nueva al final
+        contents: [...prepararHistorial(req.body.historial), { role: "user", parts: [{ text: pregunta }] }],
         // Temperatura baja: respuestas pegadas a las fuentes, con menos invención
         generationConfig: { temperature: 0.2 },
       }),
@@ -119,6 +121,10 @@ app.post("/api/chat", limitePorMinuto, limitePorDia, async function (req, res) {
     if (!respuestaGemini.ok || !texto) {
       // Solo se registra el estado y el mensaje de error, nunca la clave
       console.error("Respuesta inesperada de Gemini:", respuestaGemini.status, datos.error?.message || "");
+      // 429: se agotó la cuota de Gemini (en el plan gratuito, un número fijo de preguntas al día)
+      if (respuestaGemini.status === 429) {
+        return res.status(503).json({ error: "El asistente alcanzó su límite de preguntas por ahora. Inténtalo de nuevo más tarde." });
+      }
       return res.status(502).json({ error: "El asistente no pudo responder en este momento." });
     }
 

@@ -197,6 +197,29 @@ function formatearCorrelaciones(correlaciones) {
   ).join("\n");
 }
 
+const MAXIMO_MENSAJES_HISTORIAL = 8;
+const LARGO_MAXIMO_MENSAJE_HISTORIAL = 2000;
+
+// Convierte la conversación previa que envía el chat ({ rol: "usuario" | "asistente", texto }) al formato
+// de Gemini. Descarta entradas inválidas, recorta textos largos y garantiza que los turnos alternen
+// empezando por el usuario y terminando en el asistente, porque la pregunta nueva se añade después.
+function prepararHistorial(historial) {
+  if (!Array.isArray(historial)) return [];
+  const turnos = [];
+  historial.slice(-MAXIMO_MENSAJES_HISTORIAL).forEach(function (mensaje) {
+    if (!mensaje || (mensaje.rol !== "usuario" && mensaje.rol !== "asistente") || typeof mensaje.texto !== "string") return;
+    const texto = mensaje.texto.trim().slice(0, LARGO_MAXIMO_MENSAJE_HISTORIAL);
+    if (!texto) return;
+    const role = mensaje.rol === "usuario" ? "user" : "model";
+    const anterior = turnos[turnos.length - 1];
+    if (anterior && anterior.role === role) anterior.parts[0].text += "\n\n" + texto;
+    else turnos.push({ role, parts: [{ text: texto }] });
+  });
+  while (turnos.length && turnos[0].role !== "user") turnos.shift();
+  while (turnos.length && turnos[turnos.length - 1].role !== "model") turnos.pop();
+  return turnos;
+}
+
 // Separa la línea final "Fuentes: [A], [B]" de la respuesta del modelo y la convierte en una lista
 // de fuentes conocidas (con enlace cuando existe). Las fuentes que no son del proyecto se descartan.
 function separarFuentes(texto, documentos) {
@@ -270,4 +293,5 @@ module.exports = {
   cargarDocumentos,
   construirInstrucciones,
   separarFuentes,
+  prepararHistorial,
 };
