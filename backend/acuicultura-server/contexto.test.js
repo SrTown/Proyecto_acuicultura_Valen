@@ -183,3 +183,18 @@ test("prepararHistorial limita la cantidad de mensajes y el largo de cada uno", 
   assert.equal(turnos[0].parts[0].text, "m12");
   assert.deepEqual(prepararHistorial("no es una lista"), []);
 });
+
+test("construirInstrucciones permite responder con amabilidad saludos, despedidas y agradecimientos sin línea de fuentes", () => {
+  const instrucciones = construirInstrucciones({ muestras: [muestra({})], documentos: DOCUMENTOS });
+  assert.ok(instrucciones.includes("saludos"), "saludos");
+  assert.ok(instrucciones.includes("despedidas"), "despedidas");
+  assert.ok(instrucciones.includes("agradecimientos"), "agradecimientos");
+  assert.ok(instrucciones.includes("tono amable"), "tono amable");
+  assert.ok(/sin línea de fuentes/i.test(instrucciones), "sin línea de fuentes en saludos");
+});
+
+test("el mensaje fuera de alcance es amable e invita a preguntar sobre el proyecto", () => {
+  assert.ok(MENSAJE_FUERA_DE_ALCANCE.startsWith("Lo siento"));
+  assert.ok(MENSAJE_FUERA_DE_ALCANCE.includes("¿"));
+  assert.ok(!MENSAJE_FUERA_DE_ALCANCE.startsWith("Solo puedo"));
+});
