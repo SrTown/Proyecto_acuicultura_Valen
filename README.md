@@ -29,6 +29,7 @@ Proyecto_Valen/
 │   ├── styles.css                Sistema visual de todo el sitio (colores, tipografía, componentes)
 │   ├── interfaz.js               Carrusel, animaciones, línea de tiempo y visor de imágenes
 │   ├── config.js                 Dirección de la API (local o publicada)
+│   ├── favicon.svg               Ícono de la pestaña (el mismo de la cabecera), con versiones PNG
 │   ├── datos.js                  Carga y muestra los datos de /api/datos
 │   ├── chat.js                   Asistente de chat
 │   └── img/                      Fotografías del proyecto
@@ -167,7 +168,7 @@ que conviene que el motivo principal esté centrado.
 | Método | Ruta | Descripción |
 |---|---|---|
 | `GET` | `/api/datos` | Devuelve el contenido de `muestras.json`. |
-| `POST` | `/api/chat` | Recibe `{ "mensaje": "..." }` (1 a 500 caracteres) y devuelve `{ "respuesta": "..." }`. |
+| `POST` | `/api/chat` | Recibe `{ "mensaje": "..." }` (1 a 500 caracteres) y devuelve `{ "respuesta": "...", "fuentes": [{ "nombre": "...", "url": "..." }] }`. `url` es el DOI del artículo, `datos.html` para los datos o `null`. |
 
 Si hay un error, ambas rutas responden con `{ "error": "..." }` y el código HTTP correspondiente:
 
@@ -190,16 +191,19 @@ reinician al reiniciar el servidor. Los valores se cambian en `servidor.js`
 En cada pregunta, `contexto.js` arma la instrucción de sistema que recibe Gemini con tres
 fuentes:
 
-1. **Descripción del proyecto**: resumen y las cinco fases de muestreo (`DESCRIPCION_PROYECTO`).
-   Si cambia la metodología, actualiza ese texto.
+1. **Sitio web del proyecto**: resumen, las cinco fases de muestreo, el equipo de investigación
+   y la sede (`DESCRIPCION_PROYECTO`). Si cambia la metodología o el equipo de la página de
+   Inicio, actualiza también ese texto.
 2. **Datos del muestreo**: se leen de `muestras.json` en cada pregunta (los mismos que las
    gráficas). Incluye la tabla completa, un resumen por estanque (mínimo, promedio y máximo)
    y las tres correlaciones de Spearman de la página Datos, calculadas con la misma fórmula.
 3. **Artículos de referencia**: cada archivo `.txt` de `conocimiento/` se carga al arrancar.
 
 El asistente solo responde sobre esas fuentes. Si la pregunta es de otro tema o la respuesta
-no está en ellas, contesta con un mensaje fijo (`MENSAJE_FUERA_DE_ALCANCE`), y cada respuesta
-termina con una línea `Fuentes:`.
+no está en ellas, contesta con un mensaje fijo (`MENSAJE_FUERA_DE_ALCANCE`). El modelo termina
+cada respuesta con una línea `Fuentes:`; el servidor la separa (`separarFuentes`), descarta las
+fuentes que no son del proyecto y la envía como lista, que el chat muestra aparte con enlace al
+DOI de cada artículo y a la página Datos.
 
 Para añadir un artículo, crea un `.txt` en `conocimiento/` con este encabezado y reinicia el
 servidor (o vuelve a publicar):

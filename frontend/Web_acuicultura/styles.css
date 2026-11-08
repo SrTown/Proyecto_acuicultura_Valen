@@ -650,6 +650,12 @@ nav a:hover::after, nav a[aria-current="page"]::after { transform: scaleX(1); }
 #form-chat button:hover { background: var(--verde-400); }
 #form-chat button:disabled { opacity: 0.6; cursor: wait; }
 #respuesta-ia { margin: 0; max-height: 260px; overflow-y: auto; font-size: 0.9rem; color: var(--hueso-dim); }
+.chat-fuentes { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--linea); font-size: 0.78rem; color: var(--hueso-dim); }
+.chat-fuentes[hidden] { display: none; }
+.chat-fuentes-titulo { display: block; margin-bottom: 4px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--verde-400); }
+.chat-fuentes ul { margin: 0; padding-left: 18px; }
+.chat-fuentes li + li { margin-top: 2px; }
+.chat-fuentes a { color: var(--verde-400); text-decoration: underline; text-underline-offset: 2px; }
 
 /* ---------- Botón volver arriba ---------- */
 #volver-arriba {

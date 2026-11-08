@@ -6,7 +6,7 @@ const express = require("express");
 const cors = require("cors");
 const { rateLimit, MINUTE, DAY } = require("express-rate-limit");
 const fs = require("fs/promises");
-const { cargarDocumentos, construirInstrucciones } = require("./contexto");
+const { cargarDocumentos, construirInstrucciones, separarFuentes } = require("./contexto");
 const app = express();
 
 const PUERTO = process.env.PORT || 3000;
@@ -122,7 +122,8 @@ app.post("/api/chat", limitePorMinuto, limitePorDia, async function (req, res) {
       return res.status(502).json({ error: "El asistente no pudo responder en este momento." });
     }
 
-    res.json({ respuesta: texto });
+    // La línea final "Fuentes:" se envía aparte, como lista, para mostrarla con su propio formato
+    res.json(separarFuentes(texto, DOCUMENTOS));
   } catch (error) {
     console.error("Error al contactar a Gemini:", error.message);
     res.status(502).json({ error: "No se pudo contactar al asistente." });

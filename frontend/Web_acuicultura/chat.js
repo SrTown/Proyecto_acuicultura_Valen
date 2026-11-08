@@ -10,6 +10,45 @@ const parrafoRespuesta = document.querySelector("#respuesta-ia");
 
 inputPregunta.maxLength = LARGO_MAXIMO_PREGUNTA;
 
+// Bloque de fuentes bajo la respuesta (se crea aquí para no repetirlo en cada página HTML)
+const bloqueFuentes = document.createElement("div");
+bloqueFuentes.className = "chat-fuentes";
+bloqueFuentes.hidden = true;
+parrafoRespuesta.after(bloqueFuentes);
+
+// Solo se enlazan destinos conocidos: artículos por DOI y la página de Datos del propio sitio
+function esEnlaceSeguro(url) {
+  return typeof url === "string" && (url.startsWith("https://doi.org/") || url === "datos.html");
+}
+
+function mostrarFuentes(fuentes) {
+  bloqueFuentes.textContent = "";
+  bloqueFuentes.hidden = !Array.isArray(fuentes) || fuentes.length === 0;
+  if (bloqueFuentes.hidden) return;
+
+  const titulo = document.createElement("span");
+  titulo.className = "chat-fuentes-titulo";
+  titulo.textContent = "Fuentes";
+  const lista = document.createElement("ul");
+  fuentes.forEach(function (fuente) {
+    const item = document.createElement("li");
+    if (esEnlaceSeguro(fuente.url)) {
+      const enlace = document.createElement("a");
+      enlace.href = fuente.url;
+      enlace.textContent = fuente.nombre;
+      if (fuente.url.startsWith("https://")) {
+        enlace.target = "_blank";
+        enlace.rel = "noopener noreferrer";
+      }
+      item.appendChild(enlace);
+    } else {
+      item.textContent = fuente.nombre;
+    }
+    lista.appendChild(item);
+  });
+  bloqueFuentes.append(titulo, lista);
+}
+
 botonLanzador.addEventListener("click", function () {
   panelChat.classList.toggle("oculto");
   const abierto = !panelChat.classList.contains("oculto");
@@ -47,6 +86,7 @@ formulario.addEventListener("submit", async function (event) {
   if (!pregunta) return;
 
   parrafoRespuesta.textContent = "Procesando tu pregunta...";
+  mostrarFuentes([]);
   botonEnviar.disabled = true;
 
   try {
@@ -62,6 +102,7 @@ formulario.addEventListener("submit", async function (event) {
       return;
     }
     mostrarRespuesta(datos.respuesta);
+    mostrarFuentes(datos.fuentes);
   } catch (error) {
     parrafoRespuesta.textContent = "No se pudo conectar con el asistente. ¿Está encendido el servidor?";
     console.log("Error al procesar la pregunta:", error);

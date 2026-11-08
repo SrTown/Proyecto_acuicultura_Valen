@@ -11,7 +11,10 @@ const {
   muestrasATabla,
   cargarDocumentos,
   construirInstrucciones,
+  separarFuentes,
 } = require("./contexto");
+
+const DOCUMENTOS = [{ citaCorta: "Vroom et al. (2023)", doi: "10.3389/frwa.2023.1256799", encabezado: "Titulo: X", cuerpo: "Ebullition dominates." }];
 
 function muestra(datos) {
   return {
@@ -83,12 +86,14 @@ test("cargarDocumentos lee el encabezado y el texto de cada .txt e ignora otros 
   const carpeta = fs.mkdtempSync(path.join(os.tmpdir(), "conocimiento-"));
   try {
     fs.writeFileSync(path.join(carpeta, "b.txt"), "Titulo: Artículo B\r\nCita corta: Autor B (2024)\r\n---\r\nTexto B.\r\n");
-    fs.writeFileSync(path.join(carpeta, "a.txt"), "Titulo: Artículo A\nCita corta: Autor A (2023)\n---\nTexto A.\n");
+    fs.writeFileSync(path.join(carpeta, "a.txt"), "Titulo: Artículo A\nCita corta: Autor A (2023)\nDOI: 10.1000/abc\n---\nTexto A.\n");
     fs.writeFileSync(path.join(carpeta, "notas.md"), "no se carga");
     const documentos = cargarDocumentos(carpeta);
     assert.deepEqual(documentos.map((d) => d.citaCorta), ["Autor A (2023)", "Autor B (2024)"]);
     assert.equal(documentos[1].titulo, "Artículo B");
     assert.equal(documentos[1].cuerpo, "Texto B.");
+    assert.equal(documentos[0].doi, "10.1000/abc");
+    assert.equal(documentos[1].doi, "");
   } finally {
     fs.rmSync(carpeta, { recursive: true, force: true });
   }
@@ -107,4 +112,35 @@ test("construirInstrucciones limita el asistente a las fuentes e incluye datos y
   assert.ok(instrucciones.includes("Tabla completa (2 registros, CSV)"));
   assert.ok(instrucciones.includes("Estanque 11_A,2025-09-06"));
   assert.ok(!instrucciones.includes("responde con conocimiento general"));
+});
+
+test("separarFuentes quita la línea Fuentes de la respuesta y devuelve las fuentes con su enlace", () => {
+  const texto = "La ebullición domina.\n\nFuentes: [Vroom et al. (2023)], [Datos del muestreo], [Sitio web del proyecto]";
+  const { respuesta, fuentes } = separarFuentes(texto, DOCUMENTOS);
+  assert.equal(respuesta, "La ebullición domina.");
+  assert.deepEqual(fuentes, [
+    { nombre: "Vroom et al. (2023)", url: "https://doi.org/10.3389/frwa.2023.1256799" },
+    { nombre: "Datos del muestreo", url: "datos.html" },
+    { nombre: "Sitio web del proyecto", url: null },
+  ]);
+});
+
+test("separarFuentes descarta fuentes desconocidas o repetidas y acepta nombres sin corchetes", () => {
+  const conCorchetes = separarFuentes("Texto.\nFuentes: [Wikipedia], [Datos del muestreo], [datos del muestreo]", DOCUMENTOS);
+  assert.deepEqual(conCorchetes.fuentes.map((f) => f.nombre), ["Datos del muestreo"]);
+  const sinCorchetes = separarFuentes("Texto.\nFuentes: Vroom et al. (2023); Sitio web del proyecto", DOCUMENTOS);
+  assert.deepEqual(sinCorchetes.fuentes.map((f) => f.nombre), ["Vroom et al. (2023)", "Sitio web del proyecto"]);
+});
+
+test("separarFuentes deja la respuesta intacta cuando no hay línea de fuentes", () => {
+  const texto = MENSAJE_FUERA_DE_ALCANCE;
+  assert.deepEqual(separarFuentes(texto, DOCUMENTOS), { respuesta: texto, fuentes: [] });
+});
+
+test("construirInstrucciones incluye el equipo de investigación y nombra la fuente del sitio web", () => {
+  const instrucciones = construirInstrucciones({ muestras: [muestra({})], documentos: DOCUMENTOS });
+  ["Valentina Wilches Ávila", "Yudy Alejandra Solano López", "Diego David Pardo Buitrago", "João Henrique Fernandes Amaral"]
+    .forEach((nombre) => assert.ok(instrucciones.includes(nombre), nombre));
+  assert.ok(instrucciones.includes("[Sitio web del proyecto]"));
+  assert.ok(!instrucciones.includes("[Descripción del proyecto]"));
 });
