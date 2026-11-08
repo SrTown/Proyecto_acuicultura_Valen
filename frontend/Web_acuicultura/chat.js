@@ -1,4 +1,4 @@
-const URL_API_CHAT = "http://localhost:3000/api/chat";
+const URL_API_CHAT = URL_BASE_API + "/api/chat";
 const LARGO_MAXIMO_PREGUNTA = 500; // el mismo límite que valida el servidor
 
 const botonLanzador = document.querySelector("#chat-lanzador");

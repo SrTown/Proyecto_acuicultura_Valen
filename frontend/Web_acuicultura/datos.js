@@ -1,4 +1,4 @@
-const URL_API_DATOS = "http://localhost:3000/api/datos";
+const URL_API_DATOS = URL_BASE_API + "/api/datos";
 
 const listaMuestras = document.querySelector("#lista-muestras");
 const filtros = document.querySelector("#filtros");

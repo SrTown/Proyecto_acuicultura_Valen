@@ -1,0 +1,12 @@
+{
+  "name": "proyecto-acuicultura",
+  "private": true,
+  "description": "Raíz para el despliegue en Vercel: instala las dependencias que usa la función api/index.js. Deben coincidir con backend/acuicultura-server/package.json (lo comprueba npm test).",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0"
+  }
+}
