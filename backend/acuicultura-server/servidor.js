@@ -6,6 +6,7 @@ const express = require("express");
 const cors = require("cors");
 const { rateLimit, MINUTE, DAY } = require("express-rate-limit");
 const fs = require("fs/promises");
+const { cargarDocumentos, construirInstrucciones } = require("./contexto");
 const app = express();
 
 const PUERTO = process.env.PORT || 3000;
@@ -16,24 +17,17 @@ const LARGO_MAXIMO_PREGUNTA = 500;
 // Ruta absoluta: funciona sin importar desde qué carpeta se arranque el servidor
 const RUTA_MUESTRAS = path.join(__dirname, "muestras.json");
 
-// Contexto que recibe el asistente en cada pregunta, para que responda sobre el proyecto
-const CONTEXTO_PROYECTO = `Eres el asistente del proyecto de investigación "Emisiones de gases de efecto invernadero (GEI) en estanques piscícolas de cachama" de la Universidad de los Llanos (Villavicencio, Meta, Colombia).
-Responde en español, de forma clara y breve, a público general y estudiantes.
-Responde en texto plano: sin Markdown, sin asteriscos ni títulos con #. Si necesitas una lista, usa líneas que empiecen con "- ".
+// Artículos de referencia que el asistente puede citar (uno por archivo .txt). Se leen una sola vez al arrancar.
+const DOCUMENTOS = cargarDocumentos(path.join(__dirname, "conocimiento"));
+if (!DOCUMENTOS.length) {
+  console.warn("Aviso: la carpeta conocimiento/ no tiene artículos. El chat solo usará los datos del muestreo.");
+}
 
-Resumen del proyecto:
-- Mide y caracteriza las emisiones de CO2 y CH4 en estanques de tierra usados para cultivar cachama (Piaractus orinoquensis) en la Orinoquía.
-- El alimento no consumido, la producción primaria y las heces se acumulan en el sedimento y se descomponen. Con oxígeno se libera principalmente CO2; sin oxígeno domina la metanogénesis y se libera CH4.
-- Se monitorean semanalmente cuatro estanques de tierra (identificados como 11, 5, 3 y A4).
-- Variables: CO2, CH4 disuelto, pH, temperatura del agua y oxígeno disuelto (OD).
-
-Las cinco fases de muestreo en campo:
-1. Toma de muestras de agua con bomba peristáltica: selección del punto, verificación del equipo, extracción, renovación del volumen de la botella (al menos 2 volúmenes), sellado y conservación.
-2. Medición de flujos de CO2 con cámara flotante conectada a un analizador Li-COR + LoggerNet. El equipo se estabiliza 30 minutos antes de medir y se registran 8 minutos de datos por punto.
-3. Parámetros fisicoquímicos in situ con equipo multiparámetro: pH, temperatura (°C) y OD (ppm y % de saturación), con el sensor sumergido sin tocar sedimentos y esperando a que la lectura se estabilice.
-4. Muestreo de aire ambiente en bolsas Tedlar como "blanco atmosférico". La bolsa se llena con el brazo extendido para que el CO2 exhalado no contamine la muestra.
-5. Muestreo de gas disuelto por headspace: se extraen 500 mL de agua mientras se inyectan 500 mL de aire atmosférico, se agita la botella 2 minutos, el gas desplazado se captura en una bolsa Tedlar y se analiza en un equipo Picarro de alta precisión.
-Si te preguntan algo que no está en este contexto, dilo y responde con conocimiento general, aclarando que no es un dato propio del proyecto. No inventes resultados ni cifras del proyecto.`;
+// Mismos datos que reciben las gráficas de la página Datos y el contexto del chat
+async function leerMuestras() {
+  const contenido = await fs.readFile(RUTA_MUESTRAS, "utf8");
+  return JSON.parse(contenido);
+}
 
 // Orígenes que pueden llamar a la API desde el navegador.
 // Por defecto: cualquier puerto de localhost / 127.0.0.1 (desarrollo local, p. ej. Live Server).
@@ -74,8 +68,7 @@ app.use(express.json({ limit: "10kb" }));
 
 app.get("/api/datos", async function (req, res) {
   try {
-    const contenido = await fs.readFile(RUTA_MUESTRAS, "utf8");
-    res.json(JSON.parse(contenido));
+    res.json(await leerMuestras());
   } catch (error) {
     console.error("No se pudo leer muestras.json:", error.message);
     res.status(500).json({ error: "No se pudieron cargar los datos del muestreo." });
@@ -92,6 +85,14 @@ app.post("/api/chat", limitePorMinuto, limitePorDia, async function (req, res) {
     });
   }
 
+  let instrucciones;
+  try {
+    instrucciones = construirInstrucciones({ muestras: await leerMuestras(), documentos: DOCUMENTOS });
+  } catch (error) {
+    console.error("No se pudo preparar el contexto del chat:", error.message);
+    return res.status(500).json({ error: "No se pudieron cargar los datos del muestreo." });
+  }
+
   try {
     const respuestaGemini = await fetch(URL_GEMINI, {
       method: "POST",
@@ -100,13 +101,20 @@ app.post("/api/chat", limitePorMinuto, limitePorDia, async function (req, res) {
         "x-goog-api-key": process.env.GEMINI_API_KEY || "",
       },
       body: JSON.stringify({
-        systemInstruction: { parts: [{ text: CONTEXTO_PROYECTO }] },
+        systemInstruction: { parts: [{ text: instrucciones }] },
         contents: [{ role: "user", parts: [{ text: pregunta }] }],
+        // Temperatura baja: respuestas pegadas a las fuentes, con menos invención
+        generationConfig: { temperature: 0.2 },
       }),
     });
 
     const datos = await respuestaGemini.json();
-    const texto = datos.candidates?.[0]?.content?.parts?.[0]?.text;
+    // La respuesta puede venir en varias partes; se unen las de texto y se omiten las de razonamiento
+    const texto = (datos.candidates?.[0]?.content?.parts || [])
+      .filter((parte) => typeof parte.text === "string" && !parte.thought)
+      .map((parte) => parte.text)
+      .join("")
+      .trim();
 
     if (!respuestaGemini.ok || !texto) {
       // Solo se registra el estado y el mensaje de error, nunca la clave
@@ -121,13 +129,19 @@ app.post("/api/chat", limitePorMinuto, limitePorDia, async function (req, res) {
   }
 });
 
-// En Express 5 los errores al abrir el puerto llegan como argumento de este callback
-app.listen(PUERTO, function (error) {
-  if (error) {
-    console.error(error.code === "EADDRINUSE"
-      ? `El puerto ${PUERTO} ya está en uso. ¿Tienes otro servidor abierto? Ciérralo o usa otro PORT.`
-      : "No se pudo iniciar el servidor: " + error.message);
-    process.exit(1);
-  }
-  console.log("Servidor corriendo en http://localhost:" + PUERTO);
-});
+// En Vercel la app se exporta como función (api/index.js) y no abre un puerto;
+// en local (node servidor.js) sí se arranca el servidor
+if (require.main === module) {
+  // En Express 5 los errores al abrir el puerto llegan como argumento de este callback
+  app.listen(PUERTO, function (error) {
+    if (error) {
+      console.error(error.code === "EADDRINUSE"
+        ? `El puerto ${PUERTO} ya está en uso. ¿Tienes otro servidor abierto? Ciérralo o usa otro PORT.`
+        : "No se pudo iniciar el servidor: " + error.message);
+      process.exit(1);
+    }
+    console.log("Servidor corriendo en http://localhost:" + PUERTO);
+  });
+}
+
+module.exports = app;

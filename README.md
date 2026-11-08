@@ -5,7 +5,8 @@ emisiones de CO₂ y CH₄ en estanques de tierra para el cultivo de cachama
 (*Piaractus orinoquensis*) en la Orinoquía.
 
 El sitio tiene tres páginas (Inicio, Metodología y Datos) y un asistente de chat con IA
-(Gemini) que responde preguntas sobre el proyecto y sus cinco fases de muestreo.
+(Gemini) que responde **solo** preguntas sobre el proyecto, sus datos de muestreo (los mismos
+de las gráficas) y los artículos científicos de referencia, citando la fuente de cada respuesta.
 
 ## Estructura
 
@@ -13,15 +14,21 @@ El sitio tiene tres páginas (Inicio, Metodología y Datos) y un asistente de ch
 Proyecto_Valen/
 ├── backend/acuicultura-server/   Servidor Node.js + Express (API de datos y chat)
 │   ├── servidor.js               Rutas /api/datos y /api/chat
-│   ├── muestras.json             Datos del muestreo (preliminares)
+│   ├── contexto.js               Arma las instrucciones del asistente (datos + artículos)
+│   ├── contexto.test.js          Pruebas (npm test)
+│   ├── conocimiento/             Artículos de referencia del asistente, uno por .txt
+│   ├── muestras.json             Datos del muestreo
 │   ├── prueba_ai.js              Prueba rápida de la conexión con Gemini
 │   └── .env.example              Plantilla de variables de entorno
+├── api/index.js                  Entrada de la API en Vercel (usa la app de servidor.js)
+├── vercel.json                   Configuración de despliegue en Vercel
 ├── frontend/Web_acuicultura/     Sitio estático
 │   ├── index.html                Inicio
 │   ├── metodologia.html          Las cinco fases de muestreo
 │   ├── datos.html                Tabla de muestras con filtros
 │   ├── styles.css                Sistema visual de todo el sitio (colores, tipografía, componentes)
 │   ├── interfaz.js               Carrusel, animaciones, línea de tiempo y visor de imágenes
+│   ├── config.js                 Dirección de la API (local o publicada)
 │   ├── datos.js                  Carga y muestra los datos de /api/datos
 │   ├── chat.js                   Asistente de chat
 │   └── img/                      Fotografías del proyecto
@@ -180,50 +187,79 @@ reinician al reiniciar el servidor. Los valores se cambian en `servidor.js`
 
 ### Contexto del asistente
 
-El chat envía a Gemini una instrucción de sistema con el resumen del proyecto y las cinco
-fases de muestreo (`CONTEXTO_PROYECTO` en `servidor.js`). Si cambia la metodología,
-actualiza ese texto para que el asistente responda con la información correcta.
+En cada pregunta, `contexto.js` arma la instrucción de sistema que recibe Gemini con tres
+fuentes:
+
+1. **Descripción del proyecto**: resumen y las cinco fases de muestreo (`DESCRIPCION_PROYECTO`).
+   Si cambia la metodología, actualiza ese texto.
+2. **Datos del muestreo**: se leen de `muestras.json` en cada pregunta (los mismos que las
+   gráficas). Incluye la tabla completa, un resumen por estanque (mínimo, promedio y máximo)
+   y las tres correlaciones de Spearman de la página Datos, calculadas con la misma fórmula.
+3. **Artículos de referencia**: cada archivo `.txt` de `conocimiento/` se carga al arrancar.
+
+El asistente solo responde sobre esas fuentes. Si la pregunta es de otro tema o la respuesta
+no está en ellas, contesta con un mensaje fijo (`MENSAJE_FUERA_DE_ALCANCE`), y cada respuesta
+termina con una línea `Fuentes:`.
+
+Para añadir un artículo, crea un `.txt` en `conocimiento/` con este encabezado y reinicia el
+servidor (o vuelve a publicar):
+
+```
+Titulo: <título completo>
+Autores: <autores>
+Anio: <año>
+Revista: <revista>
+DOI: <doi>
+Licencia: <licencia>
+Cita corta: <p. ej. Vroom et al. (2023)>
+Tipo: <texto completo | resumen propio>
+---
+<texto del artículo>
+```
+
+Todo el contexto viaja en cada pregunta, así que cada artículo largo consume cuota de tokens
+de Gemini. Las pruebas del armado del contexto se ejecutan con `npm test`.
 
 ## Variables de entorno
 
 | Variable | Obligatoria | Por defecto | Descripción |
 |---|---|---|---|
 | `GEMINI_API_KEY` | Sí | — | Clave de la API de Gemini. |
-| `PORT` | No | `3000` | Puerto del servidor. Si lo cambias, actualiza la URL en `chat.js` y `datos.js`. |
+| `PORT` | No | `3000` | Puerto del servidor en local. Si lo cambias, actualiza la URL en `frontend/Web_acuicultura/config.js`. |
 | `GEMINI_MODELO` | No | `gemini-3.6-flash` | Modelo de Gemini que se usa. |
 | `ORIGENES_PERMITIDOS` | No | `localhost` y `127.0.0.1` (cualquier puerto) | Dominios que pueden usar la API desde el navegador, separados por comas. Necesario al publicar el sitio. |
 | `TRUST_PROXY` | No | — | Número de proxies delante del servidor (por ejemplo `1` en Render o Railway), para que el límite de preguntas se aplique por usuario. |
 
 ## Datos del muestreo
 
-`backend/acuicultura-server/muestras.json` contiene datos **preliminares**. Cada muestra tiene
-este formato:
+`backend/acuicultura-server/muestras.json` es un arreglo con una entrada por muestra. Cada una
+tiene estos campos (`null` cuando no hay dato):
 
-```json
-{ "fecha": "2025-01-15", "ph": 7.2, "temperatura": 24.5, "oxigeno": 6.1, "tecnica": "multiparametro" }
-```
+`codigo` (p. ej. `Estanque 11_A` o `Aire`), `fecha` (`AAAA-MM-DD`), `ho`, `hf`,
+`temperatura_botella` (°C), `co2_headspace` y `ch4_headspace` (ppm), `cam_t0`, `cam_tf`,
+`co2_camara` y `ch4_camara` (ppm), `temperatura_insitu` (°C), `ph`, `od_mgl` (mg/L) y
+`od_porcentaje` (%).
 
-`tecnica` debe ser `multiparametro` o `headspace` para que funcionen los filtros de la página
-de Datos. Al reemplazar el archivo con los datos completos, la página se actualiza sin
-cambiar el código: la tabla, el contador de muestras y el resumen de rangos se calculan
-solos.
+Los filtros de la página Datos se crean solos a partir de los valores de `codigo`. Al
+reemplazar el archivo, la página, las gráficas y el asistente usan los datos nuevos sin
+cambiar el código.
 
-Para añadir una técnica nueva:
+## Publicar en Vercel
 
-1. Añade un botón en `datos.html`, dentro de `#filtros`: `<button data-tecnica="nueva">Nombre</button>`.
-2. Añade su nombre para mostrar en `NOMBRES_TECNICA`, en `datos.js`.
-3. Opcional: dale un color a su insignia en `styles.css` con `.insignia-nueva { ... }`. Si no,
-   usa el estilo neutro.
+El repositorio ya está preparado para Vercel (`vercel.json`): el frontend se publica como
+sitio estático y la app de Express corre como una función en `/api/*` (`api/index.js`). El
+frontend detecta solo si está en local o publicado (`config.js`). Vercel instala las
+dependencias desde el `package.json` de la raíz, que debe tener las mismas que
+`backend/acuicultura-server/package.json` (`npm test` lo comprueba): al añadir o actualizar una
+dependencia del servidor, cámbiala en los dos.
 
-## Publicar en internet (pendiente)
+1. Crea el proyecto en Vercel sin framework (Other) y con Node.js 22.
+2. Define las variables de entorno `GEMINI_API_KEY` y `TRUST_PROXY=1`. `ORIGENES_PERMITIDOS`
+   no hace falta: el sitio y la API comparten dominio.
+3. Publica con `vercel deploy --prod` o conectando el repositorio.
 
-El proyecto está preparado para trabajar en local. Para publicarlo hay que:
-
-1. Alojar el backend en un servicio de Node.js y definir allí las variables de entorno
-   (`GEMINI_API_KEY`, `ORIGENES_PERMITIDOS` y `TRUST_PROXY`).
-2. Cambiar `http://localhost:3000` en `frontend/Web_acuicultura/chat.js` y `datos.js` por la
-   URL pública del backend.
-3. Alojar el frontend como sitio estático.
+Los límites de preguntas se guardan en la memoria de cada instancia de la función, así que en
+Vercel son aproximados.
 
 ## Equipo
 
