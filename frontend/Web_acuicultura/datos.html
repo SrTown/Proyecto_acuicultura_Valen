@@ -128,9 +128,30 @@
           <p class="datos-contador" id="contador-muestras" aria-live="polite"></p>
         </div>
 
-        <div class="lista-muestras-contenedor" data-revelar>
-          <ul id="lista-muestras" aria-live="polite"></ul>
+        <div class="tabla-muestras-contenedor" data-revelar tabindex="0" role="region" aria-label="Tabla de muestras registradas (desplazable)">
+          <table class="tabla-muestras">
+            <caption class="visualmente-oculto">Muestras registradas</caption>
+            <thead id="encabezado-muestras"></thead>
+            <tbody id="cuerpo-muestras" aria-live="polite"></tbody>
+          </table>
         </div>
+        <nav class="paginador" id="paginador" aria-label="Páginas de muestras"></nav>
+        <!-- Ficha de una muestra: se abre al hacer clic en una fila de la tabla -->
+        <dialog class="modal-muestra" id="detalle-muestra" aria-labelledby="detalle-titulo">
+          <div class="modal-cabecera">
+            <div>
+              <p class="modal-posicion" id="detalle-posicion"></p>
+              <h2 class="modal-titulo" id="detalle-titulo"></h2>
+              <p class="modal-subtitulo" id="detalle-subtitulo"></p>
+            </div>
+            <button type="button" class="boton-icono" id="detalle-cerrar" aria-label="Cerrar ficha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+          </div>
+          <div class="modal-cuerpo" id="detalle-cuerpo"></div>
+          <div class="modal-pie">
+            <button type="button" id="detalle-anterior">‹ Anterior</button>
+            <button type="button" id="detalle-siguiente">Siguiente ›</button>
+          </div>
+        </dialog>
       </div>
     </section>
 
@@ -154,13 +175,19 @@
   <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
   </button>
-  <div id="chat-panel" class="oculto">
-    <p class="chat-titulo">Asistente del proyecto</p>
+  <div id="chat-panel" class="oculto" role="dialog" aria-label="Asistente del proyecto">
+    <div class="chat-cabecera">
+      <p class="chat-titulo">Asistente del proyecto</p>
+      <div class="chat-acciones">
+        <button type="button" id="chat-limpiar" class="chat-limpiar">Nueva conversación</button>
+        <button type="button" id="chat-cerrar" class="boton-icono" aria-label="Cerrar chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+    <div id="chat-mensajes" class="chat-mensajes" role="log" aria-live="polite" aria-label="Conversación con el asistente"></div>
     <form id="form-chat">
-      <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" required>
+      <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" autocomplete="off" required>
       <button type="submit">Enviar</button>
     </form>
-    <p id="respuesta-ia" aria-live="polite"></p>
   </div>
 
   <script src="config.js"></script>

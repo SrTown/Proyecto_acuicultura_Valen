@@ -1,6 +1,10 @@
 const URL_API_DATOS = URL_BASE_API + "/api/datos";
 
-const listaMuestras = document.querySelector("#lista-muestras");
+const encabezadoMuestras = document.querySelector("#encabezado-muestras");
+const cuerpoMuestras = document.querySelector("#cuerpo-muestras");
+const contenedorTabla = document.querySelector(".tabla-muestras-contenedor");
+const paginador = document.querySelector("#paginador");
+const MUESTRAS_POR_PAGINA = 15;
 const filtros = document.querySelector("#filtros");
 const contador = document.querySelector("#contador-muestras");
 const estadoGraficas = document.querySelector("#estado-graficas");
@@ -33,12 +37,19 @@ function formatearFecha(texto) {
   return formatoFecha.format(new Date(anio, mes - 1, dia));
 }
 
+// Columnas de la tabla: los campos de CONFIGURACION_CAMPOS, en ese orden
+const COLUMNAS = Object.keys(CONFIGURACION_CAMPOS);
+
 function mostrarMensaje(texto) {
-  listaMuestras.textContent = "";
-  const mensaje = document.createElement("li");
-  mensaje.className = "mensaje-lista";
-  mensaje.textContent = texto;
-  listaMuestras.appendChild(mensaje);
+  cuerpoMuestras.textContent = "";
+  const fila = document.createElement("tr");
+  const celda = document.createElement("td");
+  celda.className = "mensaje-lista";
+  celda.colSpan = COLUMNAS.length;
+  celda.textContent = texto;
+  fila.appendChild(celda);
+  cuerpoMuestras.appendChild(fila);
+  paginador.textContent = "";
   contador.textContent = "";
 }
 
@@ -52,46 +63,126 @@ function obtenerCampo(campo) {
   return CONFIGURACION_CAMPOS[campo] || { etiqueta: campo, unidad: "" };
 }
 
-function renderizarMuestras(arrayAMostrar) {
+// Lista y página que muestra la tabla en este momento (la ficha recorre la misma lista)
+let listaVisible = [];
+let paginaVisible = 1;
+
+// Encabezado de la tabla: una columna por campo, con la unidad debajo del nombre
+function crearEncabezadoTabla() {
+  encabezadoMuestras.textContent = "";
+  const fila = document.createElement("tr");
+  COLUMNAS.forEach(function (campo) {
+    const { etiqueta, unidad } = obtenerCampo(campo);
+    const celda = document.createElement("th");
+    celda.scope = "col";
+    celda.textContent = etiqueta;
+    if (unidad) {
+      const textoUnidad = document.createElement("span");
+      textoUnidad.className = "tabla-unidad";
+      textoUnidad.textContent = unidad;
+      celda.appendChild(textoUnidad);
+    }
+    fila.appendChild(celda);
+  });
+  encabezadoMuestras.appendChild(fila);
+}
+
+// indice: posición de la muestra en la lista filtrada, para abrir su ficha al hacer clic en la fila
+function crearFilaMuestra(muestra, indice) {
+  const fila = document.createElement("tr");
+  fila.dataset.indice = indice;
+  COLUMNAS.forEach(function (campo) {
+    const valor = muestra[campo];
+    // La primera columna (estanque) encabeza la fila y es un botón para abrir la ficha con el teclado
+    const celda = document.createElement(campo === "codigo" ? "th" : "td");
+    if (campo === "codigo") {
+      celda.scope = "row";
+      const boton = document.createElement("button");
+      boton.type = "button";
+      boton.className = "fila-boton";
+      boton.textContent = formatearValor(valor);
+      boton.setAttribute("aria-label", `Ver ficha de ${formatearValor(valor)} del ${formatearFecha(muestra.fecha)}`);
+      celda.appendChild(boton);
+    } else if (campo === "fecha") {
+      const fecha = document.createElement("time");
+      fecha.dateTime = formatearValor(valor);
+      fecha.textContent = formatearFecha(valor);
+      celda.appendChild(fecha);
+    } else {
+      celda.textContent = formatearValor(valor);
+    }
+    if (typeof valor === "number") celda.className = "celda-numero";
+    if (formatearValor(valor) === "—") celda.classList.add("celda-vacia");
+    fila.appendChild(celda);
+  });
+  return fila;
+}
+
+// Números de página a mostrar: la primera, la última y las vecinas de la actual, con "…" en los saltos
+function paginasVisibles(totalPaginas, actual) {
+  const paginas = [...new Set([1, totalPaginas, actual - 1, actual, actual + 1])]
+    .filter((pagina) => pagina >= 1 && pagina <= totalPaginas)
+    .sort((a, b) => a - b);
+  return paginas.flatMap((pagina, i) => (i > 0 && pagina - paginas[i - 1] > 1 ? ["…", pagina] : [pagina]));
+}
+
+function renderizarPaginador(totalPaginas, actual, alCambiar) {
+  paginador.textContent = "";
+  if (totalPaginas <= 1) return;
+
+  function crearBoton(texto, pagina, etiqueta) {
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.textContent = texto;
+    if (etiqueta) boton.setAttribute("aria-label", etiqueta);
+    boton.disabled = pagina < 1 || pagina > totalPaginas;
+    if (pagina === actual && typeof texto === "number") {
+      boton.setAttribute("aria-current", "page");
+      boton.className = "activo";
+    }
+    boton.addEventListener("click", () => alCambiar(pagina));
+    return boton;
+  }
+
+  paginador.appendChild(crearBoton("‹ Anterior", actual - 1, "Página anterior"));
+  paginasVisibles(totalPaginas, actual).forEach(function (pagina) {
+    if (pagina === "…") {
+      const salto = document.createElement("span");
+      salto.className = "paginador-salto";
+      salto.textContent = "…";
+      paginador.appendChild(salto);
+    } else {
+      paginador.appendChild(crearBoton(pagina, pagina, `Página ${pagina}`));
+    }
+  });
+  paginador.appendChild(crearBoton("Siguiente ›", actual + 1, "Página siguiente"));
+}
+
+function renderizarMuestras(arrayAMostrar, pagina = 1) {
   if (arrayAMostrar.length === 0) {
     mostrarMensaje("No hay muestras registradas con este filtro.");
     return;
   }
 
-  listaMuestras.textContent = "";
-  arrayAMostrar.forEach(function (muestra, i) {
-    const item = document.createElement("li");
-    item.className = "muestra-item";
-    item.style.setProperty("--i", i);
-
-    const encabezado = document.createElement("div");
-    encabezado.className = "muestra-encabezado";
-    const titulo = document.createElement("h3");
-    titulo.textContent = formatearValor(muestra.codigo);
-    const fecha = document.createElement("time");
-    fecha.className = "muestra-fecha";
-    fecha.dateTime = formatearValor(muestra.fecha);
-    fecha.textContent = formatearFecha(muestra.fecha);
-    encabezado.append(titulo, fecha);
-
-    const variables = document.createElement("dl");
-    variables.className = "muestra-variables";
-    Object.entries(muestra).forEach(function ([campo, valor]) {
-      if (campo === "codigo" || campo === "fecha") return;
-      const configuracion = obtenerCampo(campo);
-      const etiqueta = document.createElement("dt");
-      etiqueta.textContent = configuracion.etiqueta;
-      const valorElemento = document.createElement("dd");
-      valorElemento.textContent = formatearValor(valor) + (configuracion.unidad && formatearValor(valor) !== "—" ? ` ${configuracion.unidad}` : "");
-      variables.append(etiqueta, valorElemento);
-    });
-
-    item.append(encabezado, variables);
-    listaMuestras.appendChild(item);
-  });
-
   const n = arrayAMostrar.length;
-  contador.textContent = n === 1 ? "1 muestra" : `${n} muestras`;
+  const totalPaginas = Math.ceil(n / MUESTRAS_POR_PAGINA);
+  const actual = Math.min(Math.max(pagina, 1), totalPaginas);
+  const inicio = (actual - 1) * MUESTRAS_POR_PAGINA;
+  const fin = Math.min(inicio + MUESTRAS_POR_PAGINA, n);
+
+  listaVisible = arrayAMostrar;
+  paginaVisible = actual;
+  cuerpoMuestras.textContent = "";
+  arrayAMostrar.slice(inicio, fin).forEach((muestra, i) => cuerpoMuestras.appendChild(crearFilaMuestra(muestra, inicio + i)));
+
+  const total = n === 1 ? "1 muestra" : `${n} muestras`;
+  contador.textContent = totalPaginas > 1 ? `${total} · mostrando ${inicio + 1}–${fin}` : total;
+
+  renderizarPaginador(totalPaginas, actual, function (nuevaPagina) {
+    renderizarMuestras(arrayAMostrar, nuevaPagina);
+    // Si la tabla quedó por encima de la pantalla, se vuelve a su inicio
+    if (contenedorTabla.getBoundingClientRect().top < 0) contenedorTabla.scrollIntoView({ block: "start" });
+  });
 }
 
 function crearFiltros(muestras) {
@@ -449,6 +540,115 @@ function dibujarGraficas(muestras) {
   });
 }
 
+// ---------- Ficha de una muestra (modal) ----------
+const modalDetalle = document.querySelector("#detalle-muestra");
+const formatoFechaLarga = new Intl.DateTimeFormat("es-CO", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+
+// Grupos de la ficha, según cómo se mide cada variable en la metodología
+const GRUPOS_DETALLE = [
+  { titulo: "Horario del muestreo", campos: ["ho", "hf"] },
+  { titulo: "Botella y gas disuelto (headspace)", campos: ["temperatura_botella", "co2_headspace", "ch4_headspace"] },
+  { titulo: "Cámara flotante", campos: ["cam_t0", "cam_tf", "co2_camara", "ch4_camara"] },
+  { titulo: "Parámetros in situ", campos: ["temperatura_insitu", "ph", "od_mgl", "od_porcentaje"] },
+];
+let indiceDetalle = 0;
+
+function formatearFechaLarga(texto) {
+  const [anio, mes, dia] = String(texto).split("-").map(Number);
+  if (!anio || !mes || !dia) return String(texto);
+  return formatoFechaLarga.format(new Date(anio, mes - 1, dia));
+}
+
+// "Estanque 11_A" -> "Estanque 11 · punto A"; "Aire" -> blanco atmosférico
+function tituloMuestra(codigo) {
+  const coincidencia = String(codigo).match(/^(Estanque\s+.+?)_([AB])$/);
+  if (coincidencia) return `${coincidencia[1]} · punto ${coincidencia[2]}`;
+  if (codigo === "Aire") return "Aire (blanco atmosférico)";
+  return formatearValor(codigo);
+}
+
+function crearVariableDetalle(campo, valor) {
+  const { etiqueta, unidad } = obtenerCampo(campo);
+  const vacio = formatearValor(valor) === "—";
+  const bloque = document.createElement("div");
+  bloque.className = vacio ? "modal-variable sin-dato" : "modal-variable";
+  const nombre = document.createElement("dt");
+  nombre.textContent = etiqueta;
+  const dato = document.createElement("dd");
+  dato.textContent = vacio ? "Sin dato" : formatearValor(valor);
+  if (!vacio && unidad) {
+    const textoUnidad = document.createElement("span");
+    textoUnidad.className = "modal-unidad";
+    textoUnidad.textContent = unidad;
+    dato.appendChild(textoUnidad);
+  }
+  bloque.append(nombre, dato);
+  return bloque;
+}
+
+function mostrarDetalle(indice) {
+  indiceDetalle = Math.min(Math.max(indice, 0), listaVisible.length - 1);
+  const muestra = listaVisible[indiceDetalle];
+
+  document.querySelector("#detalle-posicion").textContent = `Muestra ${indiceDetalle + 1} de ${listaVisible.length}`;
+  document.querySelector("#detalle-titulo").textContent = tituloMuestra(muestra.codigo);
+  const horario = muestra.ho && muestra.hf ? ` · de ${muestra.ho} a ${muestra.hf}` : "";
+  document.querySelector("#detalle-subtitulo").textContent = formatearFechaLarga(muestra.fecha) + horario;
+
+  // Todos los campos de la muestra: los de cada grupo y, si hubiera otros, en "Otros datos"
+  const agrupados = new Set(["codigo", "fecha", ...GRUPOS_DETALLE.flatMap((grupo) => grupo.campos)]);
+  const otros = Object.keys(muestra).filter((campo) => !agrupados.has(campo));
+  const grupos = otros.length ? [...GRUPOS_DETALLE, { titulo: "Otros datos", campos: otros }] : GRUPOS_DETALLE;
+
+  const cuerpo = document.querySelector("#detalle-cuerpo");
+  cuerpo.textContent = "";
+  grupos.forEach(function (grupo) {
+    const seccion = document.createElement("section");
+    seccion.className = "modal-grupo";
+    const titulo = document.createElement("h3");
+    titulo.textContent = grupo.titulo;
+    const variables = document.createElement("dl");
+    variables.className = "modal-variables";
+    grupo.campos.forEach((campo) => variables.appendChild(crearVariableDetalle(campo, muestra[campo])));
+    seccion.append(titulo, variables);
+    cuerpo.appendChild(seccion);
+  });
+  cuerpo.scrollTop = 0;
+
+  document.querySelector("#detalle-anterior").disabled = indiceDetalle === 0;
+  document.querySelector("#detalle-siguiente").disabled = indiceDetalle === listaVisible.length - 1;
+}
+
+function abrirDetalle(indice) {
+  if (!listaVisible.length || typeof modalDetalle.showModal !== "function") return;
+  mostrarDetalle(indice);
+  modalDetalle.showModal();
+}
+
+cuerpoMuestras.addEventListener("click", function (event) {
+  const fila = event.target.closest("tr[data-indice]");
+  if (fila) abrirDetalle(Number(fila.dataset.indice));
+});
+document.querySelector("#detalle-cerrar").addEventListener("click", () => modalDetalle.close());
+document.querySelector("#detalle-anterior").addEventListener("click", () => mostrarDetalle(indiceDetalle - 1));
+document.querySelector("#detalle-siguiente").addEventListener("click", () => mostrarDetalle(indiceDetalle + 1));
+modalDetalle.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowLeft") mostrarDetalle(indiceDetalle - 1);
+  if (event.key === "ArrowRight") mostrarDetalle(indiceDetalle + 1);
+});
+// Clic en el fondo oscuro (fuera de la ficha) la cierra
+modalDetalle.addEventListener("click", function (event) {
+  if (event.target === modalDetalle) modalDetalle.close();
+});
+// Al cerrar, la tabla muestra la página de la última muestra vista y el foco vuelve a su fila
+modalDetalle.addEventListener("close", function () {
+  const pagina = Math.floor(indiceDetalle / MUESTRAS_POR_PAGINA) + 1;
+  if (pagina !== paginaVisible) renderizarMuestras(listaVisible, pagina);
+  const boton = cuerpoMuestras.querySelector(`tr[data-indice="${indiceDetalle}"] .fila-boton`);
+  if (boton) boton.focus();
+});
+
+crearEncabezadoTabla();
 mostrarMensaje("Cargando muestras...");
 
 fetch(URL_API_DATOS)

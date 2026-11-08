@@ -210,13 +210,19 @@
   <button id="chat-lanzador" aria-label="Abrir chat del proyecto" aria-expanded="false">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
   </button>
-  <div id="chat-panel" class="oculto">
-    <p class="chat-titulo">Asistente del proyecto</p>
+  <div id="chat-panel" class="oculto" role="dialog" aria-label="Asistente del proyecto">
+    <div class="chat-cabecera">
+      <p class="chat-titulo">Asistente del proyecto</p>
+      <div class="chat-acciones">
+        <button type="button" id="chat-limpiar" class="chat-limpiar">Nueva conversación</button>
+        <button type="button" id="chat-cerrar" class="boton-icono" aria-label="Cerrar chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+    <div id="chat-mensajes" class="chat-mensajes" role="log" aria-live="polite" aria-label="Conversación con el asistente"></div>
     <form id="form-chat">
-      <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" required>
+      <input type="text" id="input-pregunta" placeholder="Escribe tu pregunta..." aria-label="Pregunta para el asistente del proyecto" autocomplete="off" required>
       <button type="submit">Enviar</button>
     </form>
-    <p id="respuesta-ia" aria-live="polite"></p>
   </div>
 
   <script src="config.js"></script>

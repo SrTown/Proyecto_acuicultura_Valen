@@ -25,13 +25,13 @@ Proyecto_Valen/
 ├── frontend/Web_acuicultura/     Sitio estático
 │   ├── index.html                Inicio
 │   ├── metodologia.html          Las cinco fases de muestreo
-│   ├── datos.html                Tabla de muestras con filtros
+│   ├── datos.html                Gráficas y tabla de muestras con filtros, paginador y ficha de cada muestra (clic en la fila)
 │   ├── styles.css                Sistema visual de todo el sitio (colores, tipografía, componentes)
 │   ├── interfaz.js               Carrusel, animaciones, línea de tiempo y visor de imágenes
 │   ├── config.js                 Dirección de la API (local o publicada)
 │   ├── favicon.svg               Ícono de la pestaña (el mismo de la cabecera), con versiones PNG
 │   ├── datos.js                  Carga y muestra los datos de /api/datos
-│   ├── chat.js                   Asistente de chat
+│   ├── chat.js                   Asistente de chat (conversación guardada en el navegador con localStorage)
 │   └── img/                      Fotografías del proyecto
 └── docs/                         Presentaciones y documentos del proyecto (no forman parte del sitio)
 ```
@@ -168,7 +168,7 @@ que conviene que el motivo principal esté centrado.
 | Método | Ruta | Descripción |
 |---|---|---|
 | `GET` | `/api/datos` | Devuelve el contenido de `muestras.json`. |
-| `POST` | `/api/chat` | Recibe `{ "mensaje": "..." }` (1 a 500 caracteres) y devuelve `{ "respuesta": "...", "fuentes": [{ "nombre": "...", "url": "..." }] }`. `url` es el DOI del artículo, `datos.html` para los datos o `null`. |
+| `POST` | `/api/chat` | Recibe `{ "mensaje": "...", "historial": [{ "rol": "usuario" \| "asistente", "texto": "..." }] }` (mensaje de 1 a 500 caracteres; `historial` es opcional, el servidor usa los últimos 8 mensajes, de hasta 2000 caracteres cada uno, para entender preguntas de seguimiento) y devuelve `{ "respuesta": "...", "fuentes": [{ "nombre": "...", "url": "..." }] }`. `url` es el DOI del artículo, `datos.html` para los datos o `null`. |
 
 Si hay un error, ambas rutas responden con `{ "error": "..." }` y el código HTTP correspondiente:
 
@@ -177,7 +177,8 @@ Si hay un error, ambas rutas responden con `{ "error": "..." }` y el código HTT
 | `400` | La pregunta está vacía o supera los 500 caracteres. |
 | `429` | Se superó el límite de preguntas (ver abajo). |
 | `500` | No se pudo leer `muestras.json`. |
-| `502` | Gemini no respondió o devolvió un error (clave inválida, cuota agotada...). La causa queda en la consola del servidor. |
+| `502` | Gemini no respondió o devolvió un error (por ejemplo, clave inválida). La causa queda en la consola del servidor. |
+| `503` | Se agotó la cuota de Gemini. En el plan gratuito hay un número fijo de preguntas al día por modelo (20 para `gemini-3.6-flash` al momento de escribir esto; se ve en AI Studio). |
 
 ### Límite de preguntas al chat
 
