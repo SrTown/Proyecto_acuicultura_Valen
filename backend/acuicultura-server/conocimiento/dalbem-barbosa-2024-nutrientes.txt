@@ -1,0 +1,361 @@
+Titulo: From Feed to Fish—Nutrients’ Fate in Aquaculture Systems
+Autores: Ana Paula Dalbem Barbosa, Sarian Kosten, Claumir Cesar Muniz, Ernandes Sobreira Oliveira-Junior
+Anio: 2024
+Revista: Applied Sciences, 14:6056
+DOI: 10.3390/app14146056
+Licencia: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+Cita corta: Dalbem Barbosa et al. (2024)
+Tipo: texto completo
+---
+[Nota: texto completo del artículo publicado bajo licencia Creative Commons Attribution (CC BY), reproducido con atribución a sus autores. Adaptado para consulta: se omitieron la lista de referencias, agradecimientos, financiación, contribuciones de autores, conflicto de intereses, nota del editor y material suplementario; las tablas se reescribieron como texto con columnas separadas por "|", las ecuaciones en notación lineal y los superíndices/subíndices en línea (p. ej., CH4, m-2 d-1).]
+
+Abstract
+
+Aquaculture is increasing globally, providing protein to a growing population, but little is known regarding the nutrient budgets in aquaculture. To obtain insight into how management practices impact nutrient fluxes in freshwater aquaculture earthen ponds worldwide, we conducted a literature review. Our literature search yielded 23 papers in which nutrient budgets were reported. Our results showed that the main nutrient inputs are inlet water, feed, and fertilizers, but they varied according to location and management practices. Overall, feed and fertilizers constituted the predominant nutrient sources, accounting for up to 99% of the total inputs. The most quantified outputs were outlet water, fish, and sedimentation. Our findings indicate that only up to 20% of carbon, 45% of nitrogen, and 60% of phosphorus are assimilated by the fish. In some systems, up to 80% of carbon, 80% of nitrogen, and 60% of phosphorus accumulate in pond bottoms; in other systems, the outflow represents substantial losses of up to 16% of carbon, 76% of nitrogen, and 55% of phosphorus. More insight into nutrients’ fate in fishponds is crucial from a sustainability perspective, as feed and fertilizer use can likely be optimized, reducing operational costs and the potential impact on the surrounding environment and atmospheric greenhouse gas concentrations.
+
+Keywords: nutrient fluxes; carbon; nitrogen; phosphorus; fish production
+
+1. Introduction
+
+Human population growth and the rising demand for nutritious food have resulted in a significant increase in fish consumption, rising from 9 kg to 20 kg per capita in the past decades [1]. In association, the aquaculture industry has grown remarkably, with fish production increasing sixfold in the last 20 years [2]. Notably, by 2020, global aquaculture yielded an output of over 157 million tonnes of fish for human consumption, to which freshwater aquaculture contributed 56%, representing a USD 265 billion sale value by 2020 [1].
+
+Fish is considered an environmentally more sustainable protein source than meat of other reared animals [3]. Fish have the lowest feed conversion ratio (FCR) among reared animals, indicating efficient feed utilization per gram of live weight [4]. Despite fish being considered a more environmentally sustainable protein source, the nutrient retention in the live weight of fish is low compared to the amount of nitrogen excreted as ammonia and urea [5]. For commercially fed Oreochromis niloticus (Nile tilapia), for instance, it is estimated that 35% of nitrogen and 28% of phosphorus are transformed into fish biomass, with the remainder of the N and P from feed input being converted to waste [6]. The assimilation of nutrients in fertilizer-fed (on-farm supply) Oreochromis niloticus is reported to be even lower, with only 10% of nitrogen and 5% of phosphorus incorporated into the fish biomass, while the remainder is lost in the cultivation system [7].
+
+The low percentages of nutrients assimilated highlight that, by far, the largest share of nutrients added to fish cultures is lost. This loss can occur in the form of waste (emission via wastewater or—in the case of carbon and nitrogen—to the atmosphere and sedimentation) or assimilated by non-target biota. Given that feed is generally the major operational cost [8], this implies an enormous economic loss. In addition, the nutrient inputs in aquaculture are a matter of concern due to the eutrophication of the fishponds and the receiving waters [2] and as anthropogenic sources of greenhouse gas emissions [9,10].
+
+Insight into nutrient fluxes, in combination with different management techniques, can eventually contribute to optimizing fish growth and minimizing potential environmental impacts. A comprehensive understanding of the nutrient dynamics in aquaculture is essential to develop effective nutrient management strategies that minimize environmental impact and promote the long-term viability of aquaculture [11].
+
+Hence, here we provide an overview of studies on nutrient budgets of freshwater earthen (excavated) fishponds, which are the most commonly used facility to produce finfish [1]. We aim to link observed differences in nutrient budgets to the cultured fish species and to pond management (e.g., way of feeding, fertilizer use) to obtain insight into how different practices impact the nutrient budget. Therefore, our main question is, “How do management practices in freshwater aquaculture systems impact the nutrient fluxes, and what practices can be implemented to optimize these parameters and promote the sustainability of these systems?”.
+
+2. Materials and Methods
+
+To answer our research questions, we searched literature from the past 40 years, aiming to include the 20 years prior to the rapid increase in fish production as well as recent research. In April 2020, the search was performed in Scopus, ScienceDirect, and Web of Science using advanced searches, with combinations of the following search terms together with the Boolean operators AND and OR: fish pond OR “fishpond” AND freshwater AND carbon AND nitrogen AND phosphorus and “nutrient budget” AND aquaculture found in the papers’ titles or keywords. The search results from the platforms were saved in BibTeX format and exported to the software State of the Art through Systematic Review (StArt version 2.3.4.2), where the papers were sorted.
+
+Based on the papers’ abstracts, we first selected all papers that reported nutrient fluxes, concentrations in at least one pond compartment (inlet, pond, and outlet), and the fish species cultivated. We did not include papers that focused on the aquaculture of species other than fish (for instance, algae, crustaceans, mollusks, and shellfish), papers that focused on marine and brackish systems, nor, for instance, review papers without original data. Other papers that lacked data providing insight into the ponds’ nutrient budgets tended to focus on specific biological groups within the ponds (e.g., bacteria, algae, plants, and animal communities) or aquaculture systems other than ponds (e.g., net cages) (Figure 1). A Sankey plot, obtained using the software JMP® 17 (trial version) with the Enhanced Sankey Plot extension, was used to display the interactions among cultivation systems and fish species.
+
+Our search yielded 1267 papers; 65 were duplicated, and 1112 papers were rejected. Of these, 606 papers did not focus on freshwater fish cultivation, and within fish aquaculture, 506 papers did not follow the inclusion criteria and were classified as follows: focusing on the biology of the fish rather than on the nutrient budget (113), aquaculture not involving fish (85), papers on marine or brackish systems (81), papers without original data (224), and aquaculture carried out in freshwater systems other than excavated earthen ponds (e.g., reservoirs, rivers, or natural lakes) (19). Finally, we also excluded papers in which the input data were based solely on qualitative data obtained from interviews (two) that were not included in our review.
+
+Figure 1. Flow chart of the paper search, selection, and data extraction.
+
+We retrieved data on carbon, nitrogen, and phosphorus fluxes from the various sources (inputs) as well as the different losses (outputs). Next, we calculated the contribution of different nutrient sources to the total nutrient input to the fishponds and the contribution of the different output terms to the total output. As water used to fill the ponds can be an important nutrient source, we accounted for rainwater and inlet water separately. Inlet water can include more diverse sources, including runoff, groundwater, rivers, streams, lakes, irrigation canals, effluents from mines, reservoirs and other fishponds, and domestic sewage.
+
+Furthermore, we give an overview of the multiple nutrient loss pathways. Particulate matter entering the ponds, including organic and inorganic matter in the inlet water, uneaten feed, feces, within-pond primary production, as well as leaves and other material falling into the water, may settle at the pond bottom. When sedimentation rates are higher than sediment mineralization, this leads to the accumulation of organic matter in the pond bottoms. We also identified pathways that were often not quantified (e.g., infiltration and gas efflux). Gas efflux can be measured as ammonia volatilization and diffusive and ebullitive pathways of nitrogen and carbon.
+
+We pay special attention to the assimilation of nutrients by the cultivated species, as this is the targeted endpoint of the nutrients added to the fishponds and ultimately impacts its marketability and the sustainability of the aquaculture practice. We did not include studies where, besides harvested fish, no other output terms were quantified because the lack of data on output terms inhibits the calculation of the percentage of the total nutrient output ending up in the fish.
+
+We present input and output rates in kg ha-1 day-1 and the percentages of the different budget terms with respect to the total carbon (C), nitrogen (N), and phosphorus (P) input or output. Finally, the budget is presented as ranges to reflect the data variability obtained from different fish cultivation systems. It is important to note that these ranges are intended to be considered independently as they highlight the spectrum of the values for each element (C, N, and P) registered in various fish cultivation conditions.
+
+3. Results
+
+3.1. Paper Selection and Nutrient Budget
+
+A total of 74 papers reported the cultivated fish species, provided the nutrient data from some of the pond’s budget terms, or reported the whole nutrient budget of carbon, nitrogen, or phosphorus. Of the assessed papers, the majority (51) did not report some nutrient input and output pathways. In the 23 papers that reported a complete or nearly complete nutrient budget, feed (in twenty papers), fertilizer (in nineteen papers), inlet water (in fifteen papers), and stocked fish (in ten papers) were the inputs quantified in most of the papers, while precipitation and gas influx were reported in only four papers each. Regarding the outputs, the main reported components were outlet water (in eighteen papers), harvested fish (in twenty-two papers), and sedimentation (in fifteen papers), while fewer studies reported infiltration and gas efflux (four) (Figure 2 and Table S1 for more details).
+
+Our search yielded papers from 25 countries, of which India (ten), Brazil (nine), and China (nine) were the countries with more publications. The country where most studies reported complete or near complete nutrient budgets was Brazil (five) (Figure 3).
+
+Figure 2. Number of papers that reported specific nutrient input and output pathways in fishponds. C: papers evaluating only carbon; N: papers evaluating only nitrogen; P: papers evaluating only phosphorus; N+P: papers evaluating nitrogen and phosphorus; C+N+P: papers evaluating all three nutrients; CH4 + CO2: studies in which both gases were quantified; N2 + NH3: studies that quantified dinitrogen efflux and NH3 volatilization. n.r.: not reported in the budget.
+
+Figure 3. Assessed papers’ locations across the world. Dots indicate the studies’ locations, and triangles indicate the papers focusing on nutrient budget location.
+
+3.2. Fishpond and Cultivation Characteristics
+
+In four of the seventy-four assessed papers, the authors referred to the fish production they studied as being ‘extensive’; in nine papers, the production was ‘semi-intensive’; and in seven papers, the production was considered to be intensive, while fifty-four papers did not report the type of production (Table S2). In extensively managed fishponds, average fish yields ranged from 38 to 584 kg ha-1; in semi-intensive production, yields ranged from 755 to 13,312 kg ha-1; and in intensive production, yields ranged from 53 to 43,358 kg ha-1. The lowest value from intensive production was due to the low cultivation period (73 days).
+
+The 74 papers collectively recorded a total of forty-seven fish species and two species of prawn cultivated together with fish. Of the 47 fish species, only 14 were studied in more than two papers. These species were cultivated in polyculture, monoculture, and integrated systems (Figure 4). Differently from monoculture and polyculture, in which the main produced species are fish, the integrated systems combine different activities—e.g., agriculture and fish farming—where the output of one component is utilized as input for the other to maximize productivity and reduce environmental impacts.
+
+Examples of integrated systems in our database were agriculture–aquaculture (IAA) that included farming of rice and fish [12], agricultural residues applied to ponds and pond water used for irrigation [13], and soybean cultivation within the dry pond and later used in feed formulation [14]. Integrated cultivation systems were also reported as integrated multi-trophic aquaculture (IMTA), which combines fed species (commonly finfish) with an extractive species (e.g., filter-feeders such as fish or prawns) reared in the same pond or in enclosures (cage-culture) [15] and in-pond raceways [16]
+
+The species Oreochromis niloticus and Cyprinus carpio were the most cultivated species, reported in 30 and 19 papers, respectively, and were cultivated in monoculture, polyculture, and integrated cultivation systems. In IMTA, the fish species Catla catla, Labeo rohita, Cirrhinus mrigala [17,18], Mugil cephalus, Ctenopharyngodon idella, Hypophthalmichthys molitrix [19], and Oreochromis niloticus [20] were cultivated with the prawn species Macrobachium rosenbergii. The prawn species Macrobachium amazonicum, in turn, was only reported in Brazilian aquaculture and was cultivated in Oreochromis niloticus [21–23] and Colossoma macropomum ponds [24–26].
+
+Figure 4. Most studied fish species and the corresponding cultivation systems in the assessed papers.
+
+3.3. Nutrient Input in Fishponds
+
+3.3.1. Precipitation
+
+Out of the 23 papers that reported the nutrient input, 15 quantified and reported the input via precipitation. Most of these papers reported only one nutrient. Two papers accounted for nitrogen and phosphorus, and two papers included carbon, nitrogen, and phosphorus in precipitation in their budgets. These studies provide insights into the contribution of precipitation to the overall input of nutrients. Investigations conducted in Indonesia [27] and Vietnam [13] assumed that precipitation made a negligible contribution to the budget and, hence, was not included in the budget. Studies conducted in Brazil, China, and the USA indicated that rainwater accounted for less than 5% of the total inputs for carbon, nitrogen, or phosphorus (Table 1). Besides the low concentration of C, N, and P in precipitation, it was not the primary water supply in these systems, further explaining the low contribution to total nutrient input.
+
+In Indian fish farms, the precipitation accounted for approximately 0.5% of the total organic carbon, while the contribution of nitrogen and phosphorus was found to be less than 0.10% of the total input [18]. In Indian ponds, where precipitation was not the main source but was responsible for 20% of the ponds’ water supply, it registered a participation of 4% in the total nitrogen input [28].
+
+Table 1. Contribution of precipitation to the total input of carbon, nitrogen, and phosphorus and their average supply rates during the study period (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. n.r.: not reported.
+Reference | Location | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1) | P (%) | P (kg ha-1 d-1)
+[15] | China | n.r. | n.r. | n.r. | n.r. | 0.09 | 0.001
+[16] | USA | 0 | 0 | n.r. | n.r. | n.r. | n.r.
+[18] | India | 0.5 | 0.06 | 0.08 | 0.001 | 0.07 | 0.003
+[21] | Brazil | n.r. | n.r. | 0.06 | 0.002 | n.r. | n.r.
+[22] | Brazil | n.r. | n.r. | n.r. | n.r. | 0.5 | 0.004
+[24] | Brazil | n.r. | n.r. | 0.9 | 0.02 | n.r. | n.r.
+[25] | Brazil | 0.6 | 0.19 | n.r. | n.r. | n.r. | n.r.
+[26] | Brazil | n.r. | n.r. | n.r. | n.r. | 0.5 | 0.002
+[28] | USA | n.r. | n.r. | 4 | 0.07 | n.r. | n.r.
+[29] | Honduras | n.r. | n.r. | 0.6 | 0.01 | 0.1 | 0.001
+[30] | China | n.r. | n.r. | 0.5 | 0.009 | 0.05 | 0.0002
+[31] | China | 0.06 | 0.05 | 0.11 | 0.01 | 0.08 | 0.001
+
+3.3.2. Inlet Water
+
+Of the twenty-three papers, five did not report the water source, and although they were included in the budget, the main water source was not specified in one of the studies that reported the budget [17]. Nonetheless, in this case, the contribution of inlet water to the budget was less than 5% of the total inputs (Table 2). Particularly, studies that reported a substantial contribution of inlet water to the total input mentioned the specific water source.
+
+Table 2. Contribution of inlet water to the total input of carbon, nitrogen, and phosphorus, along with their average supply rates during the study period (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. n.r.: not reported.
+Reference | Water sources | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1) | P (%) | P (kg ha-1 d-1)
+[13] | Irrigation canals, precipitation, and infiltration * | 7 | 4.3 | 54 | 4.6 | 10 | 0.3
+[14] | Stream | n.r. | n.r. | n.r. | n.r. | 0.3 | 0.001
+[16] | Precipitation, groundwater, and runoff | 0 | 0 | n.r. | n.r. | n.r. | n.r.
+[17] | n.r. | 0.5 | 0.06 | 0.1 | 0.0009 | 0.07 | 0.0003
+[21] | Reservoir | n.r. | n.r. | 29 | 1 | n.r. | n.r.
+[22] | Reservoir | n.r. | n.r. | n.r. | n.r. | 26 | 0.19
+[24] | Reservoir | n.r. | n.r. | 58 | 1 | n.r. | n.r.
+[25] | Reservoir | 32 | 10 | n.r. | n.r. | n.r. | n.r.
+[26] | Reservoir | n.r. | n.r. | n.r. | n.r. | 37 | 0.11
+[27] | Reservoir | n.r. | n.r. | 6 | 0.6 | 0.1 | 0.004
+[28] | Main source n.r. and precipitation | n.r. | n.r. | 7 | 0.12 | n.r. | n.r.
+[29] | Main source n.r. and precipitation | n.r. | n.r. | 4 | 0.06 | 4 | 0.03
+[30] | Main source n.r. and precipitation | n.r. | n.r. | 1 | 0.01 | 0.4 | 0.001
+[31] | Main source n.r. and precipitation | 0.45 | 0.3 | 1.7 | 0.17 | 1.4 | 0.02
+[32] | Watershed | n.r. | n.r. | n.r. | n.r. | 72 | 0.0001
+[33] | Effluents from fish culture | n.r. | n.r. | 75 | 1.3 | 55 | 0.12
+[34] | Water from fishpond | n.r. | n.r. | n.r. | n.r. | 1 | 0.01
+[35] | Effluents from fish culture | n.r. | n.r. | 1 | 0.2 | 0.2 | 0.006
+
+* inlet water was the sum of all water sources.
+
+Studies on Brazilian fishponds reported a high share of the nutrients being supplied by the inlet water, along with which source was a reservoir that received effluents from other animals’ cultivation. Thus, for phosphorus, there were shares of 26% [22] to 37% [26]; for nitrogen, there were shares of 29% [21] and 58% and [24]; and for carbon, 32% were found [25]. Notably, the highest percentage of P (72%) was reported in fishponds receiving loads from the watershed, which included animal slurry and wastewater from treatment plants [32].
+
+3.3.3. Gas Influx
+
+Six of the papers in our database reported gas fluxes, of which one reported the influx of CO2 and CH4, and five papers reported N2 fixation. Carbon influx through photosynthesis accounted for 3.5% of the carbon input in ponds in integrated polyculture in-pond raceways in the USA [16]. In integrated ponds of Colossoma macropomum cultivation with Macrobachium amazonicum, the reported CO2 influx corresponded to 12%, while CH4 contributed to only 0.2% of the total input [25] (Table 3).
+
+In the same cultivation system, 0.2% of the total N input was through N2 absorption [24]. For integrated Oreochromis niloticus ponds, N2 absorption was more important (>1.2%) [21], while in Micropterus salmoides monoculture cultivation ponds, a lower contribution was reported (0.05%) [31].
+
+Table 3. Contribution of gaseous C and N influx to the total input of carbon and nitrogen and its rates (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. I: integrated cultivation systems and M: monoculture; n.r.: not reported.
+Reference | Fish species | Cultivation system | Gas | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1)
+[16] | Ictalurus punctatus, hybrid channel catfish (Ictalurus punctatus × Ictalurus furcatus), Polyodon spathula, Oreochromis niloticus | I | CO2 | 3.5 | 8 | n.r. | n.r.
+[21] | Oreochromis niloticus | I | N2 | n.r. | n.r. | 1 | 0.04
+[24] | Colossoma macropomum | I and M | N2 | n.r. | n.r. | 0.2 | 0.02
+[25] | Colossoma macropomum | I and M | CO2 | 12 | 3.5 | n.r. | n.r.
+[25] | Colossoma macropomum | I and M | CH4 | 0.2 | 0.08 | n.r. | n.r.
+[28] | Ictalurus punctatus | M | N2 | n.r. | n.r. | 0.05 | 0.003
+[31] | Micropterus salmoides | M | N2 | n.r. | n.r. | 0.05 | 5.5
+
+3.3.4. Stocked Fish
+
+Stocked fish was included in the budget of 15 of the 23 papers that reported the budget and often represented a minor fraction of the total nutrient input in fishponds (Table 4). Generally, the weight of stocked fish (1.7–10 g per individual) is much lower compared to their final weight (180-786 g per individual). In this case, the stocked fish accounts only for a minor portion of the total carbon input (<1%) [25,31], 3% of the total phosphorus, and 5% of the total nitrogen.
+
+In cases where the stocked fish already have a high initial weight and do not grow a lot during the cultivation period (e.g., in [15], where the initial weight was 44 g, which increased to 104 g at the end of the 73 days lasting cultivation period), the contribution of stocked fish to the total phosphorus inputs was considerably higher (26%). On other occasions, the relatively high contribution of stocked fish to the total N and P input quantified was caused by disregarding one or more other N and P input pathways [33,36].
+
+Table 4. Contribution of stocked fish to the total input of carbon, nitrogen, and phosphorus and its rates (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. n.r.: not reported.
+Reference | Fish species | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1) | P (%) | P (kg ha-1 d-1)
+[14] | Heterobranchus longifilis and Oreochromis niloticus | n.r. | n.r. | n.r. | n.r. | 2 | 0.006
+[15] | Carassius carassius | n.r. | n.r. | n.r. | n.r. | 26 | 0.5
+[16] | Ictalurus punctatus, hybrid channel catfish, hybrid channel catfish (Ictalurus punctatus × Ictalurus furcatus), Polyodon spathula, and Oreochromis niloticus | 3.5 | 8 | n.r. | n.r. | n.r. | n.r.
+[21] | Oreochromis niloticus | n.r. | n.r. | 1 | 0.04 | n.r. | n.r.
+[22] | Oreochromis niloticus | n.r. | n.r. | n.r. | n.r. | 1.3 | 0.01
+[24] | Colossoma macropomum | n.r. | n.r. | 0.2 | 0.02 | n.r. | n.r.
+[25] | Colossoma macropomum | 0.10 | 0.03 | n.r. | n.r. | n.r. | n.r.
+[26] | Colossoma macropomum | n.r. | n.r. | n.r. | n.r. | 0.2 | 0.001
+[27] | Osphronemus goramy | n.r. | n.r. | 3 | 0.3 | 0.7 | 0.02
+[28] | Ictalurus punctatus | n.r. | n.r. | 2 | 0.04 | n.r. | n.r.
+[29] | Oreochromis niloticus | n.r. | n.r. | 5 | 0.05 | 2 | 0.02
+[30] | Channa arguss and Hypothalmichthys nobilis | n.r. | n.r. | 0.2 | 0.003 | 0.1 | 0.0004
+[31] | Micropterus salmoides | 0.3 | 0.2 | 0.7 | 0.1 | 0.5 | 0.01
+[33] | Cyprinus carpio | n.r. | n.r. | 36 | 0.05 | 28 | 0.01
+[35] | Hybrid catfish (Clarias macrocephalus × Clarias gariepinus) and Oreochromis niloticus | n.r. | n.r. | 3 | 0.5 | 2 | 0.06
+[36] | Cyprinus carpio | n.r. | n.r. | 11 | 0.2 | 26 | 0.06
+
+3.3.5. Feed and Fertilizers
+
+In the 23 budgeted papers we assessed, the feed application was mentioned in 20 papers and included a variety of feed types, including commercial feed (manufactured pellets), fish, cereals (wheat, rice, or maize bran), and plant components (plant wastes and crops residues). In some cases, specific feed was formulated to test the effect of different ingredients and dosages on fish growth (Table 5). Nonetheless, among the papers that quantified the amount of C, N, and P input via feed, the most common type of feed used was commercial feed. Low contribution of feed to the carbon inputs (<35%) was found in four of the assessed papers in different cultivation systems and species [13,16,25,31]. A contribution of up to 95% was reported in studies in polyculture carp ponds (Catla catla, Labeo rohita, and Cirrhinus mrigala) [17,18]. Overall, the contribution of fertilizer to the inputs of carbon was less than 10%, except for the integrated (IAA) fishponds, where fertilizer was composed of excreta and crop residues, accounting for 65% of the C input. Lower contribution (<30%) to the inputs of nitrogen was registered in a few studies, either receiving commercial feed [24], rice bran, or mustard oil cake [37]. Contribution of over 50% of the nitrogen inputs was commonly registered across different studies, using commercial feed, fish, or wheat as feed sources or in fertilized ponds. As for phosphorus, the lowest contribution of feed was already around 50% of the inputs [14], and the contribution of more than 70% was registered in many of the assessed papers.
+
+Table 5. Contribution of feed and fertilizers to the inputs of carbon, nitrogen, and phosphorus and its rates (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. I: integrated cultivation systems; P: polyculture; M: monoculture; TSP: triple superphosphate; n.r.: not reported.
+Reference | Fish species | Cultivation system | Period (days) | Feed/Fertilizer type | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1) | P (%) | P (kg ha-1 d-1)
+[13] | Barboides gonionotus, Cirrhinus mrigala, Cyprinus carpio, Hypophthalmichthys molitrix, Oreochromis niloticus, Helostoma temminckii, Osphronemus goramy, Pangasius hypophthalmus, and hybrid catfish (Clarias macrocephalus × Clarias gariepinus) | I | 342 | Feed: Rice bran, fish powder, and commercial feed | 21 | 5.7 | 3 | 0.2 | 12 | 0.1
+[13] | Barboides gonionotus, Cirrhinus mrigala, Cyprinus carpio, Hypophthalmichthys molitrix, Oreochromis niloticus, Helostoma temminckii, Osphronemus goramy, Pangasius hypophthalmus, and hybrid catfish (Clarias macrocephalus × Clarias gariepinus) | I | 342 | Fertilizer: Cow manure, human excreta, crop residues | 65 | 19 | 37 | 2.2 | 64 | 1
+[14] | Heterobranchus longifilis and Oreochromis niloticus | I and P | 365 | Feed: Formulated feed | n.r. | n.r. | n.r. | n.r. | 49 | 0.1
+[14] | Heterobranchus longifilis and Oreochromis niloticus | I and P | 365 | Fertilizer: Chicken manure, lime, and plant wastes | n.r. | n.r. | n.r. | n.r. | 44 | 0.1
+[15] | Carassius carassius | M | 73 | Feed: Formulated feed | n.r. | n.r. | n.r. | n.r. | 73 | 1.5
+[16] | Ictalurus punctatus, hybrid channel catfish (Ictalurus punctatus × Ictalurus furcatus), Polyodon spathula, and Oreochromis niloticus | I | 250 | Feed: Commercial feed | 22 | 51 | n.r. | n.r. | n.r. | n.r.
+[17] | Catla catla, Labeo rohita, and Cirrhinus mrigala | I | 292 | Feed: Commercial feed | 95 | 11 | 97 | 0.9 | 97 | 0.4
+[17] | Catla catla, Labeo rohita, and Cirrhinus mrigala | I | 292 | Fertilizer: Cow manure and fermented rice straw | 4 | 0.5 | 2 | 0.007 | 2 | 0.02
+[18] | Catla catla, Labeo rohita, and Cirrhinus mrigala | I | 280 | Feed: Commercial feed | 95 | 12 | 82 | 1 | 92 | 0.4
+[18] | Catla catla, Labeo rohita, and Cirrhinus mrigala | I | 280 | Fertilizer: Cow manure, urea, and simple superphosphate | 4 | 0.5 | 17 | 0.22 | 7 | 0.03
+[21] | Oreochromis niloticus | I | 140 | Feed: Commercial feed | n.r. | n.r. | 67 | 2.5 | n.r. | n.r.
+[21] | Oreochromis niloticus | I | 140 | Fertilizer: Urea and simple superphosphate | n.r. | n.r. | 0.4 | 0.01 | n.r. | n.r.
+[22] | Oreochromis niloticus | I | 140 | Feed: Commercial feed | n.r. | n.r. | n.r. | n.r. | 54 | 0.06
+[22] | Oreochromis niloticus | I | 140 | Fertilizer: Urea and simple superphosphate | n.r. | n.r. | n.r. | n.r. | 6 | 0.5
+[24] | Colossoma macropomum | I and M | 171 | Feed: Commercial feed | n.r. | n.r. | 28 | 1.2 | n.r. | n.r.
+[25] | Colossoma macropomum | I and M | 171 | Feed: Commercial feed | 27 | 9 | n.r. | n.r. | n.r. | n.r.
+[26] | Colossoma macropomum | I and M | 171 | Feed: Commercial feed | n.r. | n.r. | n.r. | n.r. | 61 | 0.26
+[27] | Osphronemus goramy | M | 152 | Feed: Commercial feed | n.r. | n.r. | 56 | 6.5 | 60 | 1.8
+[27] | Osphronemus goramy | M | 152 | Fertilizer: Chicken manure and rice bran | n.r. | n.r. | 34 | 4 | 38 | 1.1
+[28] | Ictalurus punctatus | M | 133 | Feed: Commercial feed | n.r. | n.r. | 88 | 1.7 | n.r. | n.r.
+[29] | Oreochromis niloticus | M | 151 | Chicken litter | n.r. | n.r. | 93 | 1.6 | 94 | 0.8
+[30] | Channa arguss and Hypothalmichthys nobilis | P | 120 | Feed: Commercial feed | n.r. | n.r. | 98 | 1.5 | 99 | 0.3
+[31] | Micropterus salmoides | M | 240 | Feed: Fish | 34 | 28 | 97 | 9 | 98 | 1.3
+[33] | Cyprinus carpio | M | 163 | Feed: Wheat | n.r. | n.r. | 69 | 0.1 | 70 | 0.02
+[35] | Hybrid catfish (Clarias macrocephalus × Clarias gariepinus) and Oreochromis niloticus | I | 87 | Feed: Commercial feed | n.r. | n.r. | 63 | 12 | 83 | 2.8
+[35] | Hybrid catfish (Clarias macrocephalus × Clarias gariepinus) and Oreochromis niloticus | I | 87 | Fertilizer: Urea and TSP | n.r. | n.r. | 5.7 | 1.2 | 8.7 | 0.3
+[37] | Catla catla, Labeo rohita, and Labeo calbasu | P | 135 | Feed: Rice bran and mustard oil cake | n.r. | n.r. | 25 | 4.5 | n.r. | n.r.
+[37] | Catla catla, Labeo rohita, and Labeo calbasu | P | 135 | Fertilizer: Cow manure, urea, and TSP | n.r. | n.r. | 95 | 1.5 | n.r. | n.r.
+[38] | Cyprinus carpio and hybrid tilapia (Oreochromis niloticus × Oreochromis aureus) | P | 53 | Feed: Commercial feed | 47 | 36 | n.r. | n.r. | n.r. | n.r.
+[38] | Cyprinus carpio and hybrid tilapia (Oreochromis niloticus × Oreochromis aureus) | P | 53 | Fertilizer: Chicken manure | 6 | 3.5 | n.r. | n.r. | n.r. | n.r.
+
+3.4. Nutrient Output in Fishponds
+
+3.4.1. Infiltration
+
+Nutrient (N, P, and/or C) loss through infiltration was reported in four of the twenty-three assessed papers that reported the nutrient budget. Either it was calculated assuming the same nutrient concentration in pond water multiplied by the volume of infiltrated water [13,29] or—in the case of N—based on a laboratory essay using sediment cores, where the flux of nitrate and ammonia through the sediment column was measured [28,31]. In three of the four studies in which the loss of nutrients through the pond bottom was assessed, the contribution of infiltration to the total output in the different studies was no more than 1% of carbon [16,31], nitrogen [28,31], and phosphorus [31] (Table 6). In one study, higher values of N (3%) and P (14%) were registered. As infiltration was calculated as having the same concentration as pond water, the water column had a very high concentration of nutrients due to consistent chicken manure fertilization [29].
+
+Table 6. Contribution of infiltration to the outputs of carbon, nitrogen, and phosphorus and its rates (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. n.r.: not reported.
+Reference | Methods | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1) | P (%) | P (kg ha-1 d-1)
+[16] | Same concentration as pond water | 0.01 | 0.03 | n.r. | n.r. | n.r. | n.r.
+[28] | Sediment cores | n.r. | n.r. | 0.5 | 0.01 | n.r. | n.r.
+[29] | Same concentration as pond water | n.r. | n.r. | 3 | 1.7 | 14 | 0.9
+[31] | Sediment cores | 0.2 | 0.2 | 0.4 | 0.04 | 0.5 | 0.01
+
+3.4.2. Outlet Water
+
+Draining the ponds is the first step of fish harvesting, and depending on the pond size, depth, and shape, the process can be complex, requiring more than a hundred days to be completed in larger ponds [39]. Considering that about 90 to 92% of the pond water is flushed out [13,18] and that the generally high nutrient concentrations in the pond water further increase during the emptying and harvesting process as a result of resuspension [40], this flux can be an important component of the overall nutrient budget. Thus, the nutrient in outlet water was accounted for in the budget of 17 of the 23 assessed papers. Overall, the contribution of outlet water to the total output of C was low, accounting for no more than 1.5%, as observed in different studies (Table 7). However, higher values were observed in integrated (IMTA) fishponds, where the outlet water contributed 7% to the outputs [25]. In other integrated cultivation systems (IAA) with high-water-exchange ponds, the contribution reached up to 16% of the outputs [13].
+
+Table 7. Contribution of outlet water to the total output of carbon, nitrogen, and phosphorus and its rates (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. n.r.: not reported.
+Reference | Pond hydrology | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1) | P (%) | P (kg ha-1 d-1)
+[13] | Flushed | 16 | 6 | 61 | 7 | 38 | 0.8
+[15] | Not flushed | n.r. | n.r. | n.r. | n.r. | 4 | 0.08
+[16] | Not flushed | 0.1 | 0.3 | n.r. | n.r. | n.r. | n.r.
+[17] | Not flushed | 1.2 | 0.14 | 1 | 0.01 | 0.6 | 0.002
+[18] | Not flushed | 1 | 0.15 | 0.9 | 0.01 | 0.6 | 0.003
+[21] | Not flushed | n.r. | n.r. | 5 | 0.2 | n.r. | n.r.
+[22] | Not flushed | n.r. | n.r. | n.r. | n.r. | 8 | 0.07
+[24] | Not flushed | n.r. | n.r. | 12 | 0.5 | n.r. | n.r.
+[25] | Not flushed | 7 | 2 | n.r. | n.r. | n.r. | n.r.
+[26] | Not flushed | n.r. | n.r. | n.r. | n.r. | 9.5 | 0.03
+[27] | Flushed | n.r. | n.r. | 5 | 0.4 | 0.4 | 0.01
+[28] | n.r. | n.r. | n.r. | 14 | 0.3 | n.r. | n.r.
+[29] | n.r. | n.r. | n.r. | 8 | 0.1 | 33 | 0.3
+[30] | Not flushed | n.r. | n.r. | 0.2 | 3.2 | 0.3 | 1.1
+[31] | Flushed | 0.8 | 0.05 | 7.3 | 0.6 | 4.5 | 0.06
+[32] | Flushed | n.r. | n.r. | n.r. | n.r. | 13 | 0.01
+[36] | Flushed | n.r. | n.r. | 76 | 1.3 | 55 | 0.1
+[35] | Flushed | n.r. | n.r. | 13 | 1.3 | 9 | 0.06
+
+The contribution of outlet water to the total N output varies widely, with contributions lower than 15% found in several studies. The contribution of outlet water to the total N output is highest (61 and 76%) in ponds in which the water is flushed out (i.e., replaced by inlet water) during the production cycle [13,36]. As for P, outlet water accounted for less than 1% of the total outputs in studies conducted in polyculture carp ponds (Catla catla, Labeo rohita, Cirrhinus mrigala, and Hypothalmichthys nobilis) [17,18,30] and in Osphronemus goramy ponds [27]. In general, the water outlet was responsible for less than 10%, whereas the highest contributions of outlet water to the total P output were within the range of 33 to 55%. The highest contribution of outlet to the total output of P and N was found in a system where effluents from other fish production (nutrient-rich inlet water) in Cyprinus carpio cultivation were used [33]. Here, the outlet water was the main output of N and P. In this study, only two output terms were reported (i.e., harvested fish and outlet water), which may have inflated the percentage of nutrients being flushed out if other important output terms had been missed. It is likely, however, that the water outlet is indeed an important output term as these study systems were constantly flushed, which contrasts with systems in which the water is drained only at the end of the cultivation period.
+
+3.4.3. Gas Efflux, Ammonia Volatilization and Denitrification
+
+Out of the twenty-three papers reviewed, eight focused on evaluating the nutrient release through gas efflux. Five studies have examined the nitrogen efflux, while only three assessed the carbon efflux. Other than respiration, carbon gaseous fluxes, such as CO2 and CH4, were often neglected in the past, as they were perceived to have minimal impact on the pond’s carbon budget at the time [38]. Within the examined literature, nitrogen gas forms were quantified through denitrification and ammonia volatilization, while diffusive and ebullitive pathways were utilized to measure nitrogen (N2) and carbon compound emissions (Table 8). Despite the relevance of N2O for climate change, the quantification was not found in the assessed papers.
+
+Table 8. Contribution of gas efflux to the outputs of carbon and nitrogen and its rates (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. n.r.: not reported.
+Reference | Pathway | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1)
+[16] | Respiration | 26 | 62 | n.r. | n.r.
+[21] | Diffusion + ebullition | n.r. | n.r. | 32 | 1.2
+[24] | Diffusion | n.r. | n.r. | 0.3 | 0.01
+[24] | Ebullition | n.r. | n.r. | 52 | 2
+[25] | Diffusion CO2 | 1.4 | 0.4 | n.r. | n.r.
+[25] | Diffusion CH4 | 0 | 0.01 | n.r. | n.r.
+[25] | Ebullition CO2 | 0.2 | 0.1 | n.r. | n.r.
+[25] | Ebullition CH4 | 1.3 | 0.3 | n.r. | n.r.
+[28] | NH3 volatilization | n.r. | n.r. | 12.5 | 0.25
+[28] | Denitrification | n.r. | n.r. | 17 | 0.34
+[30] | NH3 volatilization | n.r. | n.r. | 0.8 | 0.1
+[31] | NH3 volatilization | n.r. | n.r. | 2.7 | 0.25
+[38] | Respiration | 40 | 20 | n.r. | n.r.
+
+Ammonia volatilization and denitrification were assumed to be negligible, hence not quantified in manured ponds, and were associated with very low concentrations of nitrate, nitrite, and total ammonia in the pond water [29]. In polyculture, aerated carp ponds (Channa arguss and Hypothalmichthys nobilis), ammonia volatilization contributed less than 1% of the outputs [30]. Also, low contribution (<3%) was also found in Micropterus salmoides aerated ponds [31]. Ammonia volatilization contribution to the budget was higher (12.5%) in Ictalurus punctatus, and together with denitrification (17% of the outputs), the gas efflux was the second major nitrogen output in this study [28].
+
+When considering both N2 diffusion and ebullition in integrated ponds of Orechromis niloticus, they collectively accounted for 32% of the total outputs [21]. However, a clearer understanding of each contribution emerged when the efflux pathways were reported separately. It was evident that diffusion played a minor role compared to ebullition, which alone constituted 52% of the total outputs in Colossoma macropomum ponds [24]. Similarly, in these systems, carbon emissions were assessed through the ebullition and diffusion of CO2 and CH4, contributing no more than 3.5% to the overall outputs [25]. Notably, diffusive fluxes of CO2 were significantly higher than those of CH4.
+
+Some studies addressed carbon efflux as respiration, accounting for 26% of the outputs [16] considering water, fish, and benthic respiration together. Water respiration, together with fish respiration, also accounted for an important output of carbon (40%) [38].
+
+3.4.4. Harvested Fish
+
+Although several studies did not report nutrient budgets, fish yields were reported in most studies in different contexts. Among the 74 papers assessed, 68 provided data on fish production (see Table S1), with 23 of these studies offering insights into the contribution of fish to nutrient outputs (Table 9). Less than 12% of the C entering the systems was assimilated by the fish in manured ponds [41], integrated ponds [13,25], in-pond raceway systems [16], intensive ponds [38], polyculture ponds [17], and intensive monoculture ponds [31]. The highest share of carbon ending up in harvested fish was less than 20%. These relatively high shares were reported for integrated cultivation systems in India [18]. The contribution of N was found to be less than 20% of the total output in integrated systems [13,24], in polyculture ponds [37], in chemically and organically fertilized ponds [41], in monoculture of Osphronemus goramy ponds [27], and in Oreochromis niloticus monoculture ponds [29]. A contribution of over 20% was reported in integrated ponds in Brazil [21], in Ictalurus punctatus (31%) [28], in polyculture ponds (38.5%) [30], in integrated ponds in India (44%) [18], and in Micropterus salmoides ponds (44%) [31].
+
+The contribution of harvested fish was less than 10% to the P output, registered only in the monoculture of Osphrenemus goramy (3%) [27] and in integrated ponds (4%) [13]. No more than 20% of P assimilation was found in several integrated systems and monoculture ponds [29]. Contrasting to these results, the highest P assimilation percentages were obtained in intensive Carassius carassius integrated systems (enclosure) (41%) [15] and in integrated (pen–cum–pond) systems for Oreochromis niloticus and hybrid catfish cultivation (59%) [35].
+
+While the majority of papers report FCRs within the expected low ranges for fish production, some studies documented high values. Among the lowest contribution of harvested fish to the total output, the FCR found in Micropterus salmoides fed with iced fish [31] was relatively higher than those reported in other studies of our dataset (3.9), but high FCRs are already expected in carnivorous fish production. However, an FCR of 12.4 was reported in Catla catla, Labeo rohita, and Labeo calbasu in Bangladeshi ponds, fed with rice bran and mustard oil cake [37]. The high FCR suggests that filter-feeding species benefited more from the fertilizers (as shown in Table 5) than the feed applied into the ponds. The low contribution of harvested fish to the total output, juxtaposed with high FCR, provides insight into reduced feed efficiency attributed to feed types introduced into the ponds (e.g., raw plant materials versus commercial diet), as well as the varying abilities of species to assimilate these nutrients into biomass.
+
+Table 9. Contribution of harvested fish to the outputs of carbon and nitrogen and its assimilation rates (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. FCR: feed conversion ratio; n.r.: not reported; I: integrated cultivation systems; P: polyculture; M: monoculture.
+Reference | Fish species | Cultivation system | Period (days) | FCR | Yield | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 d-1) | P (%) | P (kg ha-1 d-1)
+[13] | Barboides gonionotus, Cirrhinus mrigala, Cyprinus carpio, Hypophthalmichthys molitrix, Oreochromis niloticus, Helostoma temminckii, Osphronemus goramy, Pangasius hypophthalmus, and hybrid catfish (Clarias macrocephalus × Clarias gariepinus) | I | 342 | n.r. | 4.9 ton ha-1 | 6 | 1.7 | 4 | 0.3 | 4 | 0.07
+[14] | Heterobranchus longifilis and Oreochromis niloticus | I and P | 365 | n.r. | 8 ton ha-1 | n.r. | n.r. | n.r. | n.r. | 11 | 0.04
+[15] | Carassius carassius | M | 73 | n.r. | 53 kg ha-1 | n.r. | n.r. | n.r. | n.r. | 41 | 0.6
+[16] | Ictalurus punctatus, hybrid channel catfish (Ictalurus punctatus × Ictalurus furcatus), Polyodon spathula, and Oreochromis niloticus | P | 250 | 1.5 | 20 ton ha-1 | 11 | 25 | n.r. | n.r. | n.r. | n.r.
+[17] | Catla catla, Labeo rohita, and Cirrhinus mrigala | I | 292 | 1.8 | 4.6 ton ha-1 | 9 | 2.10 | 34 | 0.4 | 10 | 0.07
+[18] | Catla catla, Labeo rohita, and Cirrhinus mrigala | I | 280 | 1.7 | 2.7 ton ha-1 | 19 | 2.5 | 44 | 0.5 | 19 | 0.08
+[21] | Oreochromis niloticus | I | 140 | n.r. | 4.8 ton ha-1 | n.r. | n.r. | 21 | 0.7 | n.r. | n.r.
+[22] | Oreochromis niloticus | I | 140 | n.r. | 4.8 ton ha-1 | n.r. | n.r. | n.r. | n.r. | 21 | 0.2
+[24] | Colossoma macropomum | I and M | 171 | n.r. | 4.6 ton ha-1 | n.r. | n.r. | 12 | 0.5 | n.r. | n.r.
+[25] | Colossoma macropomum | I and M | 171 | n.r. | 4.6 ton ha-1 | 9 | 3 | n.r. | n.r. | n.r. | n.r.
+[26] | Colossoma macropomum | I and M | 171 | n.r. | 4.6 ton ha-1 | n.r. | n.r. | n.r. | n.r. | 23 | n.r.
+[27] | Osphronemus goramy | M | 152 | n.r. | 8 ton ha-1 | n.r. | n.r. | 18 | 1.7 | 3 | 0.1
+[28] | Ictalurus punctatus | M | 133 | 1.4 | 3.5 ton ha-1 | n.r. | n.r. | 31 | 0.6 | n.r. | n.r.
+[29] | Oreochromis niloticus | M | 151 | n.r. | n.r. | n.r. | n.r. | 18 | 0.3 | 15 | 0.1
+[30] | Channa arguss and Hypophthalmichthys nobilis | P | 120 | 1.3 | 20 ton ha-1 | n.r. | n.r. | 39 | 0.5 | 14 | 0.5
+[31] | Micropterus salmoides | M | 240 | 3.9 | 43 ton ha-1 | 14 | 10 | 44 | 3.7 | 25 | 0.3
+[32] | Cyprinus carpio | M | 365 | n.r. | 664 kg ha-1 | n.r. | n.r. | n.r. | n.r. | 6 | 0.01
+[35] | Hybrid catfish (Clarias macrocephalus × Clarias gariepinus) and Oreochromis niloticus | I | 87 | n.r. | 1.9 ton ha-1 | n.r. | n.r. | 40 | 7 | 59 | 1.7
+[36] | Cyprinus carpio (scaled common carp) | M | 120 | n.r. | >450 kg ha-1 | n.r. | n.r. | 23 | 0.4 | 44 | 0.1
+[37] | Catla catla, Labeo rohita, and Labeo calbasu | P | 135 | 12.4 | 623 kg ha-1 | n.r. | n.r. | 7 | 0.3 | n.r. | n.r.
+[38] | Cyprinus carpio and hybrid tilapia (Oreochromis niloticus × Oreochromis aureus) | P | 53 | 2.9 | 8.1 ton ha-1 | 12 | 5 | n.r. | n.r. | n.r. | n.r.
+[41] | Hybrid tilapia, Oreochromis niloticus, Hypophthalmichthys molitrix, and Ctenopharyngodon idella | P | 98 | n.r. | 2.6 ton ha-1 | 5 | 1.5 | 13 | 3.7 | n.r. | n.r.
+
+3.4.5. Sedimentation
+
+Sedimentation was evaluated in 15 of the 23 budget studies (Table 10). Only three studies evaluated the relative importance of sedimentation for C, N, and P [13,17,31]. Based on the studies in our dataset, the percentages of C, N, and P varied widely among and within cultivation systems. Carbon sedimentation contributed between 9 and 81% of the total carbon output (Table 10). The lowest contribution was reported in a study conducted in an in-pond raceway polyculture pond, where carbon sedimentation represented only 9% of the total output, representing the third major carbon loss in the studied system [16]. In the intensive monoculture of Micropterus salmoides, sediment accumulation was the second main carbon output, contributing an average of 16% to the total output. Here, the relatively low sedimentation rate was related to the presence of eco-substrates placed in different depths below the water surface, trapping suspended organic matter, hence decreasing the settlement [31]. On the other end of the spectrum are integrated cultivation systems where carbon sedimentation contributes more than 60% to the total output. In integrated fishponds (IAA), 81% of the C output accumulated in the sediment due to high organic matter from the human excreta and the crop residues that were added to the ponds as fertilizers [13].
+
+Sedimentation was also an important sink for N, representing 19 to 60% of the total output. The lowest contribution was found in Colossoma macropomum ponds cultivated together with prawns [24]. As for P sedimentation, it represented 24 to 82% of the total output. However, percentages above 60% were observed in ponds that had substrates for periphyton growth placed in the water column—e.g., bamboo, geotextile, and Aquamat® [22,31]. Similarly, in fish cultivated with prawns (IMTA) and in monoculture ponds, it accounted for a high share of total P output [17,18,27].
+
+Table 10. Contribution of sedimentation to the total output of carbon, nitrogen, and phosphorus and its rates (kg ha-1 d-1). Values shown in the table are the mean of the values reported in the assessed papers. n.r.: not reported; I: integrated cultivation systems; P: polyculture; M: monoculture.
+Reference | Cultivation system | Fish species | C (%) | C (kg ha-1 d-1) | N (%) | N (kg ha-1 da-1) | P (%) | P (kg ha-1 d-1)
+[13] | I | Barboides gonionotus, Cirrhinus mrigala, Cyprinus carpio, Hypophthalmichthys molitrix, Oreochromis niloticus, Helostoma temminckii, Osphronemus goramy, Pangasius hypophthalmus, and hybrid catfish (Clarias macrocephalus × Clarias gariepinus) | 81 | 23 | 29 | 1.9 | 48 | 0.7
+[15] | M | Carassius carassius | n.r. | n.r. | n.r. | n.r. | 55 | 1
+[16] | I | Ictalurus punctatus, hybrid channel catfish (Ictalurus punctatus × Ictalurus furcatus), Polyodon spathula, and Oreochromis niloticus | 9 | 21 | n.r. | n.r. | n.r. | n.r.
+[17] | I | Catla catla, Labeo rohita, and Cirrhinus mrigala | 68 | 8 | 38 | 0.4 | 72 | 0.2
+[18] | I | Catla catla, Labeo rohita, and Cirrhinus mrigala | 69 | 9 | 46 | 0.5 | 70 | 0.3
+[21] | I | Oreochromis niloticus | n.r. | n.r. | 31 | 1.2 | n.r. | n.r.
+[22] | I | Oreochromis niloticus | n.r. | n.r. | n.r. | n.r. | 64 | 0.6
+[24] | I and M | Colossoma macropomum | n.r. | n.r. | 19 | 0.7 | n.r. | n.r.
+[25] | I and M | Colossoma macropomum | 70 | 24 | n.r. | n.r. | n.r. | n.r.
+[26] | I and M | Colossoma macropomum | n.r. | n.r. | n.r. | n.r. | 51 | 0.2
+[27] | M | Osphronemus goramy | n.r. | n.r. | 60 | 6 | 77 | 2
+[28] | M | Ictalurus punctatus | n.r. | n.r. | 23 | 0.45 | n.r. | n.r.
+[30] | P | Channa arguss and Hypophthalmichthys nobilis | n.r. | n.r. | 60 | 0.7 | 82 | 0.2
+[31] | M | Micropterus salmoides | 16 | 11 | 45 | 3 | 69 | 0.09
+[35] | I | Hybrid catfish (Clarias macrocephalus × Clarias gariepinus) and Oreochromis niloticus | n.r. | n.r. | 40 | 8 | 24 | 0.9
+
+3.5. Gaps in the Nutrient Budget
+
+The difference between the total output and input can be related to inaccuracies in assessments of individual budget terms or to the fact that some nutrient fluxes were not considered. Only 10 of the 23 papers that reported a total budget also specifically mentioned the unaccounted portion.
+
+In the studies where the estimated nutrient output was considerably smaller than the total input, this was attributed to missing input components, for instance, the introduced small fish and the influx of leaves and flowers, dust, and birds’ feces [22]. When the total output was higher than the inputs, the authors mentioned overestimation of sedimentation [21], denitrification [17,18,31], loss to the groundwater and harvest of periphyton [30], nutrients in the outlet water [27], and the nutrient retained in the ponds [24]. Another possible reason that led to the unbalance between inputs and outputs could be the non-inclusion of inlet and outlet water when calculating the final balance [25].
+
+4. Discussion
+
+A comparison of nutrient budgets and individual fluxes using data from around the world can be complex, but it gives insight into how FCRs, as well as “waste flows”, including sedimentation, surface water outflow, and gaseous emissions, vary among fish species, pond systems, and management practices. This type of analysis is urgently needed to make fish production more sustainable. Yet, global analyses are challenging due to differences in data availability and quality, with some budgets being more complete than others. We argue that despite variations in the available data across studies, comparisons are insightful when data quality and sampling methodologies are considered. Certainly, the most sustainable practice in one region may not be directly applicable to other regions due to factors beyond the control of the fish farmer, including climate, geology, hydrology, and land use practices. In addition, socio-economic and cultural factors can lead to a high variation in fish production strategies (e.g., labor, resources available, fish species suitable for the climatic region). Nonetheless, we deem it important to increase knowledge about the input and fate of nitrogen, phosphorus, and carbon in fish cultivation systems to further increase their environmental sustainability in the sense that FCRs are optimized and pollution of the environment is minimized. Below, we discuss the major input and output terms and highlight sustainable management techniques related to the different nutrient fluxes.
+
+4.1. Inputs
+
+Feed and fertilizers represented the most substantial nutrient input (often >70% of the total input) (Figure 5). Management malpractices such as overfeeding and overfertilization can increase the contribution of these budget terms to the total nutrient budgets and even more to financial costs. When feed is the primary source of nutrient supplementation, overfeeding can be mitigated simply through improved record-keeping practices and enhanced farmer training [42].
+
+Depending on fishpond management, CO2 uptake due to photosynthetic activity can be an important budget term, particularly in fertilized systems [25]. Uptake of N2 and CH4 contributed little to the total N and C input. Even though many studies did not report the water source, studies that did assess it found substantial contributions of inlet water to the total nutrient input. This was particularly the case in Brazilian fishponds that were supplied with nutrient-rich inlet water. This nutrient-rich water was referred to as “a source of unpaid nutrients” [21]. Its use could exempt the use of supplemental feed and fertilizers [43] and can, therefore, be seen as contributing to the environmental sustainability of fish production.
+
+Depending on the hydrology of fishponds, precipitation can be an important component of a pond’s water budget. However, it was generally a minor component of the nutrient budget. Although it may be an important source of N in oligotrophic aquatic systems, this is not the case for generally nutrient-rich fishponds [44]. The relevance of precipitation for C and P input to the systems reviewed here was even lower.
+
+Figure 5. Inputs and outputs of carbon, nitrogen, and phosphorus presented as the percentage of the total input and output, respectively. Data ranges are based on findings presented in the 23 assessed papers. Straight lines represent inputs of nutrients, and dashed lines represent output of nutrients. Wavy blue arrows represent gas influx, and wavy red arrows represent gas efflux.
+
+Advancing the knowledge of fish physiology and growth can contribute to optimizing feed input in aquaculture pond systems. Improvements are also being made through the optimization of the FCR by using species-specific feed formulation. Breeding programs for higher feed efficiency (i.e., lower FCRs) of genetically improved rainbow trout resulted in the reduction of feed costs by 18%, and the low FCR led to 18.3% less nitrogen and phosphorus load into the aquatic environment [45]. A decrease in the FCR by 27% for trout, for instance, may reduce the environmental impact of trout cultivation on eutrophication, acidification potential, and global warming by 16–27% [46].
+
+4.2. Outputs
+
+Fish are the targeted endpoint for the nutrients added to the aquaculture ponds; hence, they are generally responsible for a considerable share of the output. Our review, however, shows that the share of nutrients ending up in the harvested fish varies considerably within and among cultivation systems. Harvested fish were reported in most of the assessed studies, indicating their importance in the overall studies on nutrient dynamics or growth performance. The contribution of harvested fish to the nutrient outputs in aquaculture systems in the assessed papers varied depending on factors such as pond management practices (e.g., feed type, species composition, and cultivation methods). In either monoculture, polyculture, or integrated systems, no more than 20% of the carbon was harvested as fish. Although nitrogen and phosphorus had higher percentages (>70%) in one study, the majority of the papers reported no more than 45% of the nitrogen as fish, and the phosphorus assimilated by the fish biomass was generally less than 45%. The pond’s bottom was found to often be the second most important endpoint of nutrients, with up to >80% of C, N, and P ending up there. However, the variation among aquaculture systems was large, particularly in the high-water-exchange ponds where nutrient retention in the sediment was considerably lower. Only a few studies included the loss of nutrients from the sediment during water drawdown and fishing phases [47]. The nutrients that become mobilized and flushed out transform the fishponds into significant sources of nutrients for downstream aquatic systems [32].
+
+Particularly in ponds with a high water exchange rate, outflow was an important non-targeted endpoint of nutrients [28]. In cultivation systems where low or no water exchange is practiced, the loss of nutrients to downstream waters is low [18,34]. Noteworthy is that even when water exchange during cultivation is low, nutrients may still be flushed out during the harvesting phase when ponds are drained. Part of the nutrients accumulated in the pond sediments throughout the whole cultivation period may then be flushed out due to resuspension [29,32].
+
+Nutrient-rich sediments offer a viable option for growing crops within the ponds during the dry phase [14], used as fertilizer and soil conditioner in plant culture, and also in non-aquaculture agriculture activities [47]. This approach not only optimizes nutrient utilization for fish farmers who also engage in agriculture but also benefits the environment by minimizing the release of nutrients into water bodies and the atmosphere. New studies should incorporate sediment as indicators to assess the sustainability of fish farming, particularly in instances where there is a significant influx of nutrients from feed and fertilization methods.
+
+While infiltration may contribute to water and nutrient losses from fishponds, it was generally not quantified, and when it was, the loss of nutrients through leakage towards the groundwater had a minor contribution to the outputs.
+
+The reported denitrification and ammonia volatilization varied depending on pond management practices and species composition, but overall, their contribution to the total output was minor. N2 efflux was measured only in a few studies [21,24] and was found to be emitted more through ebullition rather than diffusion. Diffusive fluxes were also the main ways of CO2 emission, but CH4 was more emitted through ebullition. Both pathways had minor contribution to the output (<1.5%) [25]. Nevertheless, from an environmental sustainability perspective, these emissions are very important [9,10]. It is also noteworthy that those values represent the emissions during the cultivation period, and the lack of investigation during other stages of the production cycle, i.e., pre-stocking phase fishless, after pond draining, and dry pond can lead to uncertainties on the overall greenhouse gas emissions [9].
+
+5. Conclusions
+
+Our review highlights several gaps in reporting nutrient budget terms, and we therefore call for more comprehensive studies on nutrient budgets. Efforts should prioritize input and output terms with high contributions to the total budget. More efficient feeding and fertilization decreases the contribution of these input terms to the total inputs and optimizes the feed conversion ratio. Furthermore, when important nutrient sources other than feed or fertilizers are identified (e.g., nutrient-rich inlet water), the input of feed and fertilizer may be reduced in the case of some species (e.g., filter-feeder species). Additionally, cultures integrating fed and extractive organisms can further increase nutrient assimilation. Outlet water and sediment are potential sources of contamination of the environment. On the other hand, nutrient-rich sediments and water offer a viable option for crop fertilization, increasing the nutrient use efficiency. As nutrients in the fishpond sediment can also significantly impact greenhouse gas emissions, not only when the ponds are full but also during dry phases and after being deposited elsewhere, recognizing that gas efflux is a crucial pathway for nutrient loss is crucial for understanding environmental impacts reaching further than the local environment. Overall, insight into the full nutrient budget of an aquaculture system facilitates the formulation of best management practices with effective strategies for sustainable aquaculture.

@@ -1,0 +1,65 @@
+Titulo: Better assessments of greenhouse gas emissions from global fish ponds needed to adequately evaluate aquaculture footprint
+Autores: Sarian Kosten, Rafael M. Almeida, Icaro Barbosa, Raquel Mendonça, Ive Santos Muzitano, Ernandes Sobreira Oliveira-Junior, Renske J. E. Vroom, Hai-Jun Wang, Nathan Barros
+Anio: 2020
+Revista: Science of the Total Environment, 748:141247
+DOI: 10.1016/j.scitotenv.2020.141247
+Licencia: No indicada (el PDF solo indica "© 2020 Elsevier B.V. All rights reserved."; sin licencia abierta)
+Cita corta: Kosten et al. (2020)
+Tipo: resumen propio
+---
+[Nota: resumen redactado en español con palabras propias; no reproduce el texto del artículo, que tiene derechos de autor de Elsevier. Las cifras y unidades son las del artículo.]
+
+1. Pregunta y enfoque
+
+Es un artículo de perspectiva, no un experimento de campo. Los autores sostienen que las emisiones de gases de efecto invernadero (GEI) de los estanques de peces de agua dulce podrían ser varias veces mayores de lo que se cree, porque casi todos los estudios miden solo el flujo difusivo entre el agua y la atmósfera. Quedan fuera las burbujas de metano (CH4) que salen del sedimento (ebullición) y las emisiones de CH4 y óxido nitroso (N2O) durante el vaciado y el rellenado. La pregunta de fondo es qué tan confiable es la huella de carbono atribuida hoy al pescado cultivado y qué habría que medir para calcularla bien y orientar un manejo climáticamente inteligente.
+
+El método es una revisión crítica de la literatura, apoyada sobre todo en la recopilación de Yuan et al. (2019) y en una clasificación propia de los métodos de medición (tabla suplementaria S1). Con esa base, los autores muestran qué vías y periodos no se miden y estiman cómo cambiaría la huella del pescado si se incluyeran.
+
+2. Contexto y cifras de partida
+
+- La producción acuícola mundial crece entre 5 y 11% al año (FAO, 2018).
+- El CO2 preocupa menos: en buena parte devuelve carbono fijado hace poco (el del alimento), y algunos estanques son sumideros de CO2 cuando la producción primaria supera la producción de CO2 del sedimento y del agua.
+- Según Yuan et al. (2019), la acuicultura de los 21 mayores países productores de pescado emite al año 218 Tg CO2-eq como CH4 y 11 Tg CO2-eq como N2O.
+- Hacia 2030 la acuicultura aportaría más del 5% del N2O antropogénico.
+- Los estanques de tierra excavados son la infraestructura más común y generarían más del 80% de las emisiones de GEI de la acuicultura.
+- Las emisiones reportadas en estanques van de 0.01 a 20 mg CH4 m-2 h-1 y de 1 a 109 µg N2O m-2 h-1.
+- El CH4 promedio es 10 (desviación estándar 4.4) mg CH4 m-2 h-1 en estanques extensivos y 4.4 (desviación estándar 6.9) en semiintensivos; el N2O promedio es 7.6 (desviación estándar 6.8) y 28 (desviación estándar 32.5) µg N2O m-2 h-1, respectivamente.
+
+Los estanques emiten mucho porque reciben abundante materia orgánica (alimento sobrante, heces, algas, abono, escorrentía) que, en el sedimento sin oxígeno, alimenta la producción de metano. El amonio (NH4+) y el nitrato (NO3-) favorecen la formación de N2O por nitrificación y desnitrificación. Los autores mencionan además fuentes poco estudiadas: N2O producido en el intestino de los animales cultivados (demostrado en camarón) y la transformación de amoníaco por microorganismos de las branquias.
+
+3. Potencial de calentamiento global (GWP) usado
+
+Valores de Myhre et al. (2013) a 100 años: el CH4 calienta 34 veces más que el CO2 y el N2O 298 veces más.
+
+4. Cómo se mide hoy
+
+En los estudios revisados por Yuan et al. (2019): la mitad mide solo N2O o solo CH4; la mayoría usa cámaras flotantes (o muestras de agua con una velocidad de intercambio estimada), casi siempre por unos 30 minutos; la gran mayoría no incluye la ebullición; casi todo se mide de día; y aunque los estanques suelen vaciarse cada 1 a 3 años, el periodo seco casi nunca se mide.
+
+5. Vías de emisión que se pasan por alto
+
+5.1. Ebullición. Las cámaras cortas no capturan las burbujas, y el CH4, poco soluble, puede salir sobre todo por esa vía. En lagos y estanques la ebullición aportó entre 75 y 96% del CH4 total. En mesocosmos sin peces aportó de 87 a 95%, y con peces de 42 a 77%, porque los peces remueven el sedimento y pueden reducirla. El único estudio en estanques de peces con trampas de 24 h halló 88 a 99% (Flickinger et al., 2020), y otro con mediciones de 15 minutos, 98 a 99% (Long et al., 2016). En varios trabajos los burbujeos registrados en las cámaras se descartaron a propósito. Como las burbujas salen de forma episódica, hacen falta mediciones de varias semanas y en distintos puntos: en sistemas someros las emisiones más altas pueden estar en el centro, donde hay más sedimento.
+
+5.2. Vaciado y rellenado. Los ciclos de secado y rehumedecimiento tienden a aumentar las emisiones. Con el sedimento aún húmedo, el N2O puede seguir alto durante semanas: en los pocos estudios que midieron el periodo seco fue entre 6 (Datta et al., 2009) y 100 veces (Yang et al., 2015) mayor que con el estanque lleno. El CH4 de un estanque vaciado puede superar al del lleno si el sedimento sigue muy húmedo, y el rellenado suele causar otro pico (efecto Birch).
+
+5.3. Aireación. Más oxígeno puede reducir la producción de CH4 y aumentar su oxidación, pero los aireadores también aceleran el intercambio de gases y pueden arrastrar CH4 y N2O del agua al aire; un mesocosmos con más aire registró más N2O por ese arrastre (Hu et al., 2013). Habría picos al encender los equipos, así que el efecto neto debe estudiarse.
+
+5.4. Variación en el tiempo. Pocos estudios cubren un año completo y faltan datos del ciclo diario. En tanques sin sedimento el N2O sube tras alimentar, y el máximo de un día puede duplicar al mínimo; con sedimento la variación diaria podría ser mayor.
+
+5.5. Lodos y efluentes. El sedimento se acumula a tasas de hasta 3.7 cm por año, por lo que los estanques podrían enterrar carbono. Proponen medirlo con núcleos de sedimento (carbono total entre la edad del estanque o el tiempo desde la última limpieza) y separar el carbono producido en el propio estanque con isótopos estables o biomarcadores lipídicos. Pero muchos estanques se dragan, y no se conocen las emisiones del lodo extraído ni de los efluentes y su tratamiento; por eso piden un análisis de ciclo de vida completo.
+
+6. Consecuencias para la huella de carbono
+
+- Res: 140 kg CO2-eq por kg de proteína en promedio; cerdo: 43 kg CO2-eq por kg de proteína.
+- Pescado cultivado sin las emisiones del agua del estanque (infraestructura, alevines, alimento y energía): 1.4 a 2.1 kg CO2-eq por kg de peso vivo, es decir, 8.8 a 13.2 kg CO2-eq por kg de proteína (con 15.9% de proteína).
+- Sumando un factor medio de emisión difusiva del estanque de 22.6 kg CO2-eq por kg de proteína (3.6 kg CO2-eq por kg de peso vivo), la huella se duplica con creces.
+- Si además se incluye la ebullición con el rango experimental de 42 a 77% del CH4 total, la huella podría volver a duplicarse: con 42% llega a unos 48 kg CO2-eq por kg de proteína (similar al cerdo) y con 77% a unos 111 kg CO2-eq por kg de proteína (cerca del 80% de la res).
+
+Los autores aclaran que son cifras ilustrativas y muy inciertas. Añaden que sin mediciones completas no se puede recomendar bien el manejo (por ejemplo, cuándo la aireación reduce las emisiones netas, o si los peces en arrozales aumentan de verdad el CH4 o solo cambian la ebullición por difusión) ni escalar las emisiones al nivel mundial: falta el área de estanques en regiones como Brasil y los estudios se concentran casi solo en Asia.
+
+7. Conclusiones
+
+- Las emisiones actuales de los estanques de peces probablemente están subestimadas, mientras el cultivo de peces sigue creciendo.
+- Los estudios futuros deben incluir ebullición, vaciado y rellenado, aireación, ciclos diarios y estacionales, lodos y efluentes, y el posible enterramiento de carbono.
+- Un buen primer paso sería un marco metodológico que optimice el muestreo para estimar los flujos totales de GEI con su incertidumbre.
+- Hay que entender cómo influyen el clima, la especie, el alimento, la forma del estanque, el sedimento, la aireación, la cosecha y el régimen de vaciado.
+- El manejo ideal estimularía la captura de CO2 por el fitoplancton y el enterramiento de esa biomasa, para compensar parte del CH4 y el N2O. Como el pescado cultivado seguirá siendo una proteína asequible e importante para la seguridad alimentaria, urge desarrollar prácticas climáticamente inteligentes en todo el mundo.
